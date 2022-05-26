@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npm version patch",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
