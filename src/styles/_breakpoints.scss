@@ -1,23 +1,23 @@
 @mixin include-s {
-  @media (min-width: 481px) {
+  @media (min-width: $media-s) {
     @content;
   }
 }
 
 @mixin include-m {
-  @media (min-width: 600px) {
+  @media (min-width: $media-m) {
     @content;
   }
 }
 
 @mixin include-l {
-  @media (min-width: 600px) {
+  @media (min-width: $media-l) {
     @content;
   }
 }
 
 @mixin include-xl {
-  @media (min-width: 600px) {
+  @media (min-width: $media-xl) {
     @content;
   }
 }

@@ -1,0 +1,1 @@
+export { MarvelView } from "./MarvelView";

@@ -1,5 +1,10 @@
-import styles from "./Root.module.scss";
+import { Layout } from "../Layout";
+import { MarvelView } from "../views/MarvelView";
 
 export const Root = () => {
-  return <div className={styles.root}></div>;
+  return (
+    <Layout>
+      <MarvelView />
+    </Layout>
+  );
 };

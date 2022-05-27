@@ -1,0 +1,23 @@
+.footer {
+  align-items: center;
+  color: $font-color-primary;
+  display: flex;
+  flex-direction: column;
+  font-size: $font-size-s;
+  height: 100px;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  max-width: $media-xl;
+  width: 100%;
+
+  span {
+    margin-right: 5rem;
+    opacity: 0.3;
+  }
+}

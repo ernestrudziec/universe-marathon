@@ -1,2 +1,27 @@
+$black: rgba(0, 0, 0, 1);
+$white: rgba(255, 255, 255, 1);
 $light-gray: #59585a;
-$dark-gray: #0e0e0e;
+$dark-gray: #151515;
+
+$mouse-white: #efefef;
+$dimmed-white: #bebebe;
+
+$media-s: 481px;
+$media-m: 768px;
+$media-l: 1120px;
+$media-xl: 1440px;
+
+$font-color-primary: $mouse-white;
+
+$font-size-s: 1.2rem;
+$font-size-m: 1.4rem;
+$font-size-l: 1.6rem;
+$font-size-xl: 1.8rem;
+$font-size-xxl: 2.4rem;
+
+$font-weight-thin: 300;
+$font-weight-regular: 500;
+$font-weight-bold: 600;
+
+$spacing-s: 0.5rem;
+$spacing-m: 1rem;
