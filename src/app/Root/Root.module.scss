@@ -1,0 +1,9 @@
+.root {
+  background: linear-gradient(
+    -50deg,
+    $light-gray -50%,
+    $dark-gray 150%
+  );
+  min-height: 100%;
+  width: 100%;
+}
