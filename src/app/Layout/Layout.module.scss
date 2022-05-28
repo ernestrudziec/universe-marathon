@@ -1,7 +1,9 @@
 .wrapper {
-  background: linear-gradient(-50deg,
-  rgb(0, 0, 0) -50%,
-  rgb(78, 78, 78) 150%);
+  background: linear-gradient(
+    -50deg,
+    rgb(0, 0, 0) -10%,
+    rgb(117, 117, 117) 150%
+  );
 
   min-height: 100%;
   width: 100%;

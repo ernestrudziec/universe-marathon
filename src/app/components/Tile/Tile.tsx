@@ -7,22 +7,31 @@ import { ReactComponent as HBOIcon } from "../../../assets/platforms/hbo.svg";
 import { ReactComponent as EmptyCheckboxIcon } from "../../../assets/icons/empty_checkbox.svg";
 import { ReactComponent as FullCheckboxIcon } from "../../../assets/icons/full_checkbox.svg";
 
-import { ReactComponent as TrailerIcon } from "../../../assets/icons/trailer.svg";
-
 export interface TileProps {
   thumbnail: string;
   title: string;
   subtitle: string;
   year: number;
   isChecked: boolean;
+  isOptional: boolean;
 }
 
 export const Tile = (props: TileProps) => {
-  const { thumbnail, title, subtitle, year, isChecked } =
-    props;
+  const {
+    thumbnail,
+    title,
+    subtitle,
+    year,
+    isChecked,
+    isOptional,
+  } = props;
 
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={`${styles.wrapper} ${
+        isOptional && styles.isOptional
+      }`}
+    >
       <div className={styles.thumbnail}>
         <div className={styles.platforms}>
           <NetflixIcon />
@@ -38,14 +47,11 @@ export const Tile = (props: TileProps) => {
           <h4>{subtitle}</h4>
         </div>
         <div className={styles.actions}>
-          <button className={styles.trailer}>
-            <TrailerIcon />
-          </button>
           <button className={styles.checkbox}>
             {isChecked ? (
-              <FullCheckboxIcon width={30} height={30} />
+              <FullCheckboxIcon width={20} height={20} />
             ) : (
-              <EmptyCheckboxIcon width={30} height={30} />
+              <EmptyCheckboxIcon width={20} height={20} />
             )}
           </button>
         </div>

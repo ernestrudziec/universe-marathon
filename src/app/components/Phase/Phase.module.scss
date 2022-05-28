@@ -1,4 +1,114 @@
 .wrapper {
+  align-items: center;
   display: flex;
-  margin: 5rem 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  color: $mouse-white;
+  font-size: $font-size-m;
+  font-weight: $font-weight-thin;
+  letter-spacing: 5px;
+  margin-bottom: 5rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+
+  strong {
+    font-weight: $font-weight-bold;
+  }
+}
+
+.content {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.separator {
+  width: 1rem;
+}
+
+.dot {
+  background: none;
+  background-color: $mouse-white;
+  border: solid 1px $mouse-white;
+  border-radius: 50%;
+  height: 0.6rem;
+  margin-top: 2rem;
+  width: 0.6rem;
+}
+
+.line {
+  background: $mouse-white;
+  height: 8rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  width: 1px;
+}
+
+.isDone {
+  background: $mouse-white;
+}
+
+.canonical,
+.optional {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.optional {
+  margin-left: 5rem;
+  max-width: 400px;
+  position: relative;
+}
+
+.canonical {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 700px;
+  padding: 3rem;
+}
+
+.sideLine {
+  border-right: solid 1px $mouse-white;
+  border-top: solid 1px $mouse-white;
+  height: 8rem;
+  position: relative;
+  right: 4rem;
+  width: 8rem;
+}
+
+.sideDot {
+  @extend %dot;
+}
+
+.sideSeparator {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -9rem;
+}
+
+.optionalWrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.optionalTilesWrapper {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 3rem;
 }
