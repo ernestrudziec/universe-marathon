@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.content}>
-        <Logo size="md" />
+        <Logo size="sm" />
       </div>
     </header>
   );

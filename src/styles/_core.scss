@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 html {
+  background: linear-gradient(
+    -50deg,
+    rgba(0, 0, 0, 1) -50%,
+    rgba(35, 35, 35, 1) 150%
+  );
   font-family: "Montserrat";
   font-size: 62.5%; // 1rem = 10px
   height: 100%;

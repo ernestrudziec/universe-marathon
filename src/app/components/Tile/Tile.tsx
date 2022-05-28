@@ -12,12 +12,14 @@ import { ReactComponent as TrailerIcon } from "../../../assets/icons/trailer.svg
 export interface TileProps {
   thumbnail: string;
   title: string;
+  subtitle: string;
   year: number;
   isChecked: boolean;
 }
 
 export const Tile = (props: TileProps) => {
-  const { thumbnail, title, year, isChecked } = props;
+  const { thumbnail, title, subtitle, year, isChecked } =
+    props;
 
   return (
     <div className={styles.wrapper}>
@@ -27,13 +29,13 @@ export const Tile = (props: TileProps) => {
           <AmazonPrimeIcon />
           <HBOIcon />
         </div>
-
+        <div className={styles.year}>{year}</div>
         <img src={thumbnail} />
       </div>
       <div className={styles.footer}>
         <div className={styles.title}>
           <h3>{title}</h3>
-          <h4>{year}</h4>
+          <h4>{subtitle}</h4>
         </div>
         <div className={styles.actions}>
           <button className={styles.trailer}>
