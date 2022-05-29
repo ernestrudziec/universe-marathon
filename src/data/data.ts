@@ -13,14 +13,20 @@ type Genre =
 type ItemId = string;
 type ItemIds = Array<ItemId> | null;
 
-interface UnlocksWith {
-  superfan: ItemIds;
-  casual: ItemIds;
-  speedrun: ItemIds;
-}
-// [ Superfan unlocks, Casual unlocks, Speedrun unlocks ]
+type GroupId = string;
+type GroupIds = Array<GroupId> | null;
 
-type StronglyRecommendedBefore = Array<string>;
+interface Collection {
+  items: ItemIds;
+  groups: GroupIds;
+}
+
+interface Superset {
+  superfan: Collection | null;
+  casual: Collection | null;
+  speedrun: Collection | null;
+}
+
 type Tiers = 1 | 2 | 3 | 4 | 5;
 
 interface Item {
@@ -28,8 +34,9 @@ interface Item {
   genre: Genre;
   id: ItemId;
   //ids start with "f" - for films, "s" - for shows, "o" - for oneshots and webisodes
-  unlocksWith?: UnlocksWith;
-  stronglyRecommendedBefore?: StronglyRecommendedBefore;
+  unlocksWith?: Superset;
+  stronglyRecommendedBefore?: Superset;
+  mightWatchBefore?: Superset;
 }
 
 type Items = Array<Item> | null;
@@ -39,7 +46,7 @@ interface PhaseShow {
   genre: Genre;
   id: string;
   tier: Tiers;
-  unlocksWith?: UnlocksWith;
+  unlocksWith?: Superset;
 }
 
 type PhaseShows = Array<PhaseShow> | null;
@@ -48,15 +55,16 @@ interface Phase {
   name: string;
   id: number;
   isMid: boolean;
-  unlocksWith: UnlocksWith;
+  unlocksWith: Superset | null;
   items: Items;
   phaseShows: PhaseShows;
   development?: Items;
   phaseShowsDevelopment?: PhaseShows;
 }
 
-interface UnallocatedPhase {
-  groupName: string;
+interface Group {
+  name: string;
+  id: GroupId;
   watchBefore: string | null;
   watchAfter: string | null;
   items: Items;
@@ -64,11 +72,11 @@ interface UnallocatedPhase {
 }
 
 type Phases = Array<Phase>;
-type UnallocatedPhases = Array<UnallocatedPhase>;
+type Groups = Array<Group>;
 
 interface Data {
   phases: Phases;
-  unallocatedPhases: UnallocatedPhases;
+  groups: Groups;
 }
 
 const data: Data = {
@@ -77,11 +85,7 @@ const data: Data = {
       name: "Before MCU",
       id: 0.5,
       isMid: true,
-      unlocksWith: {
-        superfan: null,
-        casual: null,
-        speedrun: null,
-      },
+      unlocksWith: null,
       items: null,
       phaseShows: null,
     },
@@ -89,11 +93,7 @@ const data: Data = {
       name: "Phase 1",
       id: 1,
       isMid: false,
-      unlocksWith: {
-        superfan: null,
-        casual: null,
-        speedrun: null,
-      },
+      unlocksWith: null,
       items: [
         {
           title: "Iron Man",
@@ -152,8 +152,14 @@ const data: Data = {
       ],
       phaseShows: null,
       unlocksWith: {
-        superfan: ["f-marvels_the_avengers"],
-        casual: ["f-marvels_the_avengers"],
+        superfan: {
+          items: ["f-marvels_the_avengers"],
+          groups: null,
+        },
+        casual: {
+          items: ["f-marvels_the_avengers"],
+          groups: null,
+        },
         speedrun: null,
       },
     },
@@ -230,8 +236,14 @@ const data: Data = {
         },
       ],
       unlocksWith: {
-        superfan: ["o-item_47"],
-        casual: ["f-marvels_the_avengers"],
+        superfan: {
+          items: ["o-item_47"],
+          groups: null,
+        },
+        casual: {
+          items: ["f-marvels_the_avengers"],
+          groups: null,
+        },
         speedrun: null,
       },
     },
@@ -262,8 +274,14 @@ const data: Data = {
         },
       ],
       unlocksWith: {
-        superfan: ["f-ant_man_1"],
-        casual: ["f-ant_man_1"],
+        superfan: {
+          items: ["f-ant_man_1"],
+          groups: null,
+        },
+        casual: {
+          items: ["f-ant_man_1"],
+          groups: null,
+        },
         speedrun: null,
       },
     },
@@ -411,8 +429,14 @@ const data: Data = {
         },
       ],
       unlocksWith: {
-        superfan: ["s-agent_carter:s2", "o-whih_2"],
-        casual: ["f-ant_man_1"],
+        superfan: {
+          items: ["s-agent_carter:s2", "o-whih_2"],
+          groups: null,
+        },
+        casual: {
+          items: ["f-ant_man_1"],
+          groups: null,
+        },
         speedrun: null,
       },
     },
@@ -430,11 +454,17 @@ const data: Data = {
         },
       ],
       unlocksWith: {
-        superfan: [
-          "f-spider_man_far_from_home",
-          "s-runaways:s3",
-        ],
-        casual: ["f-spider_man_far_from_home"],
+        superfan: {
+          items: [
+            "f-spider_man_far_from_home",
+            "s-runaways:s3",
+          ],
+          groups: null,
+        },
+        casual: {
+          items: ["f-spider_man_far_from_home"],
+          groups: null,
+        },
         speedrun: null,
       },
     },
@@ -464,19 +494,50 @@ const data: Data = {
           genre: "mcuFilm",
           id: "f-spider_man_no_way_home",
           unlocksWith: {
-            superfan: [
-              "s-jessica_jones:s3",
-              "s-what_if:s1",
-              "f-spider_man_into_the_spiderverse",
-              "f-venom_2",
-            ],
-            casual: ["s-what_if:s1"],
+            superfan: {
+              items: [
+                "s-jessica_jones:s3",
+                "s-what_if:s1",
+                "f-spider_man_into_the_spiderverse",
+                "f-venom_2",
+              ],
+              groups: null,
+            },
+            casual: {
+              items: ["s-what_if:s1"],
+              groups: null,
+            },
             speedrun: null,
           },
-          stronglyRecommendedBefore: [
-            "Sam Raimi Spider-Man Trilogy",
-            "Marc Webb's Spider-Man",
-          ],
+          stronglyRecommendedBefore: {
+            superfan: null,
+            casual: {
+              items: null,
+              groups: [
+                "Sam Raimi Spider-Man Trilogy",
+                "Marc Webb's Spider-Man",
+              ],
+            },
+            speedrun: {
+              items: null,
+              groups: [
+                "Sam Raimi Spider-Man Trilogy",
+                "Marc Webb's Spider-Man",
+              ],
+            },
+          },
+          mightWatchBefore: {
+            superfan: null,
+            casual: {
+              items: null,
+              groups: [
+                "netflixOriginals",
+                "animated_spiderverse_1",
+                "sony_extened_universe_1",
+              ],
+            },
+            speedrun: null,
+          },
         },
         {
           title:
@@ -484,11 +545,22 @@ const data: Data = {
           genre: "mcuFilm",
           id: "f-doctor_strange_in_the_multiverse_of_madness",
           unlocksWith: {
-            superfan: [
-              "f-the_new_mutants",
-              "f-fantastic_four_3",
-            ],
+            superfan: {
+              items: [
+                "f-the_new_mutants",
+                "f-fantastic_four_3",
+              ],
+              groups: null,
+            },
             casual: null,
+            speedrun: null,
+          },
+          mightWatchBefore: {
+            superfan: null,
+            casual: {
+              items: null,
+              groups: ["x_men_1", "fantastic_4"],
+            },
             speedrun: null,
           },
         },
@@ -583,14 +655,20 @@ const data: Data = {
           genre: "disneyPlusShow",
           id: "s-hawkeye",
           unlocksWith: {
-            superfan: [
-              "f-spider_man_no_way_home",
-              "f-black_widow",
-            ],
-            casual: [
-              "f-spider_man_no_way_home",
-              "f-black_widow",
-            ],
+            superfan: {
+              items: [
+                "f-spider_man_no_way_home",
+                "f-black_widow",
+              ],
+              groups: null,
+            },
+            casual: {
+              items: [
+                "f-spider_man_no_way_home",
+                "f-black_widow",
+              ],
+              groups: null,
+            },
             speedrun: null,
           },
         },
@@ -701,15 +779,22 @@ const data: Data = {
         },
       ],
       unlocksWith: {
-        superfan: ["s-agents_of_shield:s7"],
-        casual: ["f-spider_man_far_from_home"],
+        superfan: {
+          items: ["s-agents_of_shield:s7"],
+          groups: null,
+        },
+        casual: {
+          items: ["f-spider_man_far_from_home"],
+          groups: null,
+        },
         speedrun: null,
       },
     },
   ],
-  unallocatedPhases: [
+  groups: [
     {
-      groupName: "Netflix Originals",
+      name: "Netflix Originals",
+      id: "netflix_originals",
       watchBefore: "f-spider_man_no_way_home",
       watchAfter: null,
       items: [
@@ -781,7 +866,8 @@ const data: Data = {
       ],
     },
     {
-      groupName: "Sam Raimi Spider-Man Trilogy",
+      name: "Sam Raimi Spider-Man Trilogy",
+      id: "sam_raimi_spider-man_trilogy",
       watchBefore: "f-the_amazing_spider_man",
       watchAfter: null,
       items: [
@@ -803,7 +889,8 @@ const data: Data = {
       ],
     },
     {
-      groupName: "Marc Webb's Spider-Man",
+      name: "Marc Webb's Spider-Man",
+      id: "marc_webbs_spider_man",
       watchBefore: "f-spider_man_no_way_home",
       watchAfter: null,
       items: [
@@ -820,7 +907,8 @@ const data: Data = {
       ],
     },
     {
-      groupName: "Sony Extended Universe",
+      name: "Sony Extended Universe",
+      id: "sony_extened_universe_1",
       watchBefore: "f-spider_man_no_way_home",
       watchAfter: null,
       items: [
@@ -837,7 +925,8 @@ const data: Data = {
       ],
     },
     {
-      groupName: "Animated Spider-Verse",
+      name: "Animated Spider-Verse",
+      id: "animated_spiderverse_1",
       watchBefore: "f-spider_man_no_way_home",
       watchAfter: null,
       items: [
@@ -849,7 +938,8 @@ const data: Data = {
       ],
     },
     {
-      groupName: "X-Men",
+      name: "X-Men",
+      id: "x_men_1",
       watchBefore:
         "f-doctor_strange_in_the_multiverse_of_madness",
       watchAfter: null,
@@ -917,7 +1007,8 @@ const data: Data = {
       ],
     },
     {
-      groupName: "Fantastic 4",
+      name: "Fantastic 4",
+      id: "fantastic_4",
       watchBefore:
         "f-doctor_strange_in_the_multiverse_of_madness",
       watchAfter: null,
@@ -941,7 +1032,8 @@ const data: Data = {
       ],
     },
     {
-      groupName: "Sony Extended Universe",
+      name: "Sony Extended Universe",
+      id: "sony_extened_universe_2",
       watchBefore: null,
       watchAfter: "f-spider_man_no_way_home",
       items: [
@@ -995,7 +1087,8 @@ const data: Data = {
       ],
     },
     {
-      groupName: "Animated Spider-Verse",
+      name: "Animated Spider-Verse",
+      id: "animated_spiderverse_2",
       watchBefore: null,
       watchAfter: null,
       items: null,
