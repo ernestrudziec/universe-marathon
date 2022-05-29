@@ -30,7 +30,7 @@
   width: 1rem;
 }
 
-.dot {
+%dot {
   background: none;
   background-color: $mouse-white;
   border: solid 1px $mouse-white;
@@ -38,6 +38,10 @@
   height: 0.6rem;
   margin-top: 2rem;
   width: 0.6rem;
+}
+
+.dot {
+  @extend %dot;
 }
 
 .line {
