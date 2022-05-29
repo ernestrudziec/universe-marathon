@@ -1,4 +1,5 @@
-type genre =
+/* eslint-disable no-sparse-arrays */
+type Genre =
   | "mcuFilm"
   | "nonMcuFilm"
   | "nonMcuStronglyRecommendedFilm"
@@ -9,61 +10,90 @@ type genre =
   | "disneyPlusShow"
   | "amazonPrimeShow";
 
-type unlocksWith = [string[] | null, string[] | null, string[] | null];
+type ItemId = string;
+type ItemIds = Array<ItemId> | null;
+
+interface UnlocksWith {
+  superfan: ItemIds;
+  casual: ItemIds;
+  speedrun: ItemIds;
+}
 // [ Superfan unlocks, Casual unlocks, Speedrun unlocks ]
 
-interface IItem {
+type StronglyRecommendedBefore = Array<string>;
+type Tiers = 1 | 2 | 3 | 4 | 5;
+
+interface Item {
   title: string;
-  genre: genre;
-  id: string;
+  genre: Genre;
+  id: ItemId;
   //ids start with "f" - for films, "s" - for shows, "o" - for oneshots and webisodes
-  unlocksWith?: unlocksWith;
-  stronglyRecommendedBefore?: string[];
+  unlocksWith?: UnlocksWith;
+  stronglyRecommendedBefore?: StronglyRecommendedBefore;
 }
 
-interface IPhaseShow {
+type Items = Array<Item> | null;
+
+interface PhaseShow {
   title: string;
-  genre: genre;
+  genre: Genre;
   id: string;
-  tier: 1 | 2 | 3 | 4 | 5;
-  unlocksWith?: unlocksWith;
+  tier: Tiers;
+  unlocksWith?: UnlocksWith;
 }
 
-interface IData {
-  phases: {
-    phaseName: string;
-    phaseId: number;
-    isMidPhase: boolean;
-    unlocksWith: unlocksWith;
-    items: null | IItem[];
-    phaseShows: null | IPhaseShow[];
-    development?: IItem[];
-    phaseShowsDevelopment?: IPhaseShow[];
-  }[];
-  watchAnyTime: {
-    groupName: string;
-    watchBefore: string | null;
-    watchAfter: string | null;
-    items: null | IItem[];
-    development?: IItem[];
-  }[];
+type PhaseShows = Array<PhaseShow> | null;
+
+interface Phase {
+  name: string;
+  id: number;
+  isMid: boolean;
+  unlocksWith: UnlocksWith;
+  items: Items;
+  phaseShows: PhaseShows;
+  development?: Items;
+  phaseShowsDevelopment?: PhaseShows;
 }
 
-const data: IData = {
+interface UnallocatedPhase {
+  groupName: string;
+  watchBefore: string | null;
+  watchAfter: string | null;
+  items: Items;
+  development?: Items;
+}
+
+type Phases = Array<Phase>;
+type UnallocatedPhases = Array<UnallocatedPhase>;
+
+interface Data {
+  phases: Phases;
+  unallocatedPhases: UnallocatedPhases;
+}
+
+const data: Data = {
   phases: [
     {
-      phaseName: "Before MCU",
-      phaseId: 0.5,
-      isMidPhase: true,
-      unlocksWith: [null, null, null],
+      name: "Before MCU",
+      id: 0.5,
+      isMid: true,
+      unlocksWith: {
+        superfan: null,
+        casual: null,
+        speedrun: null,
+      },
       items: null,
       phaseShows: null,
     },
     {
-      phaseName: "Phase 1",
-      phaseId: 1,
-      isMidPhase: false,
-      unlocksWith: [null, null, null],
+      name: "Phase 1",
+      id: 1,
+      isMid: false,
+      unlocksWith: {
+        superfan: null,
+        casual: null,
+        speedrun: null,
+      },
       items: [
         {
           title: "Iron Man",
@@ -96,7 +126,8 @@ const data: IData = {
           id: "o-the_consultant",
         },
         {
-          title: "A Funny Thing Happened on the Way to Thor's Hammer",
+          title:
+            "A Funny Thing Happened on the Way to Thor's Hammer",
           genre: "oneshot",
           id: "o-a_funny_thing_happened_on_the_way_to_thors_hammer",
         },
@@ -105,14 +136,13 @@ const data: IData = {
           genre: "mcuFilm",
           id: "f-marvels_the_avengers",
         },
-        ,
       ],
       phaseShows: null,
     },
     {
-      phaseName: "Interphase",
-      phaseId: 1.5,
-      isMidPhase: true,
+      name: "Interphase",
+      id: 1.5,
+      isMid: true,
       items: [
         {
           title: "Item 47",
@@ -121,16 +151,16 @@ const data: IData = {
         },
       ],
       phaseShows: null,
-      unlocksWith: [
-        ["f-marvels_the_avengers"],
-        ["f-marvels_the_avengers"],
-        null,
-      ],
+      unlocksWith: {
+        superfan: ["f-marvels_the_avengers"],
+        casual: ["f-marvels_the_avengers"],
+        speedrun: null,
+      },
     },
     {
-      phaseName: "Phase 2",
-      phaseId: 2,
-      isMidPhase: false,
+      name: "Phase 2",
+      id: 2,
+      isMid: false,
       items: [
         {
           title: "Iron Man 3",
@@ -168,7 +198,8 @@ const data: IData = {
           id: "f-avengers_age_of_ultron",
         },
         {
-          title: "WHIH Newsfront with Christine Everhart (episodes 1-5)",
+          title:
+            "WHIH Newsfront with Christine Everhart (episodes 1-5)",
           genre: "oneshot",
           id: "o-whih_1",
         },
@@ -197,17 +228,21 @@ const data: IData = {
           id: "s-agent_carter:s1",
           tier: 1,
         },
-        ,
       ],
-      unlocksWith: [["o-item_47"], ["f-marvels_the_avengers"], null],
+      unlocksWith: {
+        superfan: ["o-item_47"],
+        casual: ["f-marvels_the_avengers"],
+        speedrun: null,
+      },
     },
     {
-      phaseName: "Interphase",
-      phaseId: 2.5,
-      isMidPhase: true,
+      name: "Interphase",
+      id: 2.5,
+      isMid: true,
       items: [
         {
-          title: "WHIH Newsfront with Christine Everhart (episodes 6-10)",
+          title:
+            "WHIH Newsfront with Christine Everhart (episodes 6-10)",
           genre: "oneshot",
           id: "o-whih_2",
         },
@@ -226,12 +261,16 @@ const data: IData = {
           tier: 1,
         },
       ],
-      unlocksWith: [["f-ant_man_1"], ["f-ant_man_1"], null],
+      unlocksWith: {
+        superfan: ["f-ant_man_1"],
+        casual: ["f-ant_man_1"],
+        speedrun: null,
+      },
     },
     {
-      phaseName: "Phase 3",
-      phaseId: 3,
-      isMidPhase: false,
+      name: "Phase 3",
+      id: 3,
+      isMid: false,
       items: [
         {
           title: "Captain America: Civil War",
@@ -371,12 +410,16 @@ const data: IData = {
           id: "s-runaways:s3",
         },
       ],
-      unlocksWith: [["s-agent_carter:s2", "o-whih_2"], ["f-ant_man_1"], null],
+      unlocksWith: {
+        superfan: ["s-agent_carter:s2", "o-whih_2"],
+        casual: ["f-ant_man_1"],
+        speedrun: null,
+      },
     },
     {
-      phaseName: "Interphase",
-      phaseId: 3.5,
-      isMidPhase: true,
+      name: "Interphase",
+      id: 3.5,
+      isMid: true,
       items: null,
       phaseShows: [
         {
@@ -386,16 +429,19 @@ const data: IData = {
           id: "s-agents_of_shield:s7",
         },
       ],
-      unlocksWith: [
-        ["f-spider_man_far_from_home", "s-runaways:s3"],
-        ["f-spider_man_far_from_home"],
-        null,
-      ],
+      unlocksWith: {
+        superfan: [
+          "f-spider_man_far_from_home",
+          "s-runaways:s3",
+        ],
+        casual: ["f-spider_man_far_from_home"],
+        speedrun: null,
+      },
     },
     {
-      phaseName: "Phase 4",
-      phaseId: 4,
-      isMidPhase: false,
+      name: "Phase 4",
+      id: 4,
+      isMid: false,
       items: [
         {
           title: "Black Widow",
@@ -403,7 +449,8 @@ const data: IData = {
           id: "f-black_widow",
         },
         {
-          title: "Shang-Chi and the Legend of the Ten Rings",
+          title:
+            "Shang-Chi and the Legend of the Ten Rings",
           genre: "mcuFilm",
           id: "f-shang_chi_1",
         },
@@ -416,30 +463,34 @@ const data: IData = {
           title: "Spider-Man: No Way Home",
           genre: "mcuFilm",
           id: "f-spider_man_no_way_home",
-          unlocksWith: [
-            [
+          unlocksWith: {
+            superfan: [
               "s-jessica_jones:s3",
               "s-what_if:s1",
               "f-spider_man_into_the_spiderverse",
               "f-venom_2",
             ],
-            ["s-what_if:s1"],
-            null,
-          ],
+            casual: ["s-what_if:s1"],
+            speedrun: null,
+          },
           stronglyRecommendedBefore: [
             "Sam Raimi Spider-Man Trilogy",
             "Marc Webb's Spider-Man",
           ],
         },
         {
-          title: "Doctor Strange in the Multiverse of Madness",
+          title:
+            "Doctor Strange in the Multiverse of Madness",
           genre: "mcuFilm",
           id: "f-doctor_strange_in_the_multiverse_of_madness",
-          unlocksWith: [
-            ["f-the_new_mutants", "f-fantastic_four_3"],
-            null,
-            null,
-          ],
+          unlocksWith: {
+            superfan: [
+              "f-the_new_mutants",
+              "f-fantastic_four_3",
+            ],
+            casual: null,
+            speedrun: null,
+          },
         },
       ],
       development: [
@@ -489,7 +540,8 @@ const data: IData = {
           id: "f-dev_captain_america_sequel",
         },
         {
-          title: "Untitled Shang-Chi and the Legend of the Ten Rings sequel",
+          title:
+            "Untitled Shang-Chi and the Legend of the Ten Rings sequel",
           genre: "mcuFilm",
           id: "f-dev_shang_chi_sequel",
         },
@@ -530,11 +582,17 @@ const data: IData = {
           tier: 1,
           genre: "disneyPlusShow",
           id: "s-hawkeye",
-          unlocksWith: [
-            ["f-spider_man_no_way_home", "f-black_widow"],
-            ["f-spider_man_no_way_home", "f-black_widow"],
-            null,
-          ],
+          unlocksWith: {
+            superfan: [
+              "f-spider_man_no_way_home",
+              "f-black_widow",
+            ],
+            casual: [
+              "f-spider_man_no_way_home",
+              "f-black_widow",
+            ],
+            speedrun: null,
+          },
         },
         {
           title: "Moon Knight",
@@ -563,7 +621,8 @@ const data: IData = {
           id: "s_dev_halloween_special",
         },
         {
-          title: "The Guardians of the Galaxy Holiday Special",
+          title:
+            "The Guardians of the Galaxy Holiday Special",
           tier: 1,
           genre: "disneyPlusShow",
           id: "s-dev_guardians_special",
@@ -641,14 +700,14 @@ const data: IData = {
           id: "s-dev_nova",
         },
       ],
-      unlocksWith: [
-        ["s-agents_of_shield:s7"],
-        ["f-spider_man_far_from_home"],
-        null,
-      ],
+      unlocksWith: {
+        superfan: ["s-agents_of_shield:s7"],
+        casual: ["f-spider_man_far_from_home"],
+        speedrun: null,
+      },
     },
   ],
-  watchAnyTime: [
+  unallocatedPhases: [
     {
       groupName: "Netflix Originals",
       watchBefore: "f-spider_man_no_way_home",
@@ -791,7 +850,8 @@ const data: IData = {
     },
     {
       groupName: "X-Men",
-      watchBefore: "f-doctor_strange_in_the_multiverse_of_madness",
+      watchBefore:
+        "f-doctor_strange_in_the_multiverse_of_madness",
       watchAfter: null,
       items: [
         {
@@ -858,7 +918,8 @@ const data: IData = {
     },
     {
       groupName: "Fantastic 4",
-      watchBefore: "f-doctor_strange_in_the_multiverse_of_madness",
+      watchBefore:
+        "f-doctor_strange_in_the_multiverse_of_madness",
       watchAfter: null,
       items: [
         {
@@ -867,7 +928,8 @@ const data: IData = {
           id: "f-fantastic_four_1",
         },
         {
-          title: "Fantastic Four: Rise of the Silver Surfer",
+          title:
+            "Fantastic Four: Rise of the Silver Surfer",
           genre: "nonMcuFilm",
           id: "f-fantastic_four_2",
         },
@@ -957,3 +1019,5 @@ const data: IData = {
     },
   ],
 };
+
+console.log(data);
