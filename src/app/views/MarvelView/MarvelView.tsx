@@ -4,6 +4,7 @@ import { data } from "../../../data/data";
 import { Tile } from "../../components";
 import { Phase } from "../../components";
 import { Dispatch, SetStateAction } from "react";
+import type { Phase as PhaseType } from "../../../data/types";
 
 interface MarvelViewProps {
   hover: {
@@ -12,31 +13,40 @@ interface MarvelViewProps {
   };
 }
 
+const shouldRenderPhase = (phase: PhaseType) => {
+  return phase.items === null && phase.phaseShows === null
+    ? false
+    : true;
+};
+
 export const MarvelView = ({ hover }: MarvelViewProps) => {
   return (
     <div className={styles.wrapper}>
-      {data.phases.map((phase) => (
-        <Phase
-          key={phase.id}
-          title={phase.name}
-          isFirst={phase.id === 0.5}
-          isDone={false}
-          optional={[]}
-        >
-          {phase.items?.map((item) => (
-            <Tile
-              key={item.id}
-              thumbnail={""}
-              title={item.title}
-              subtitle={""}
-              year={2010}
-              isChecked={false}
-              isOptional={false}
-              onHover={hover.set}
-            />
-          ))}
-        </Phase>
-      ))}
+      {data.phases.map(
+        (phase) =>
+          shouldRenderPhase(phase) && (
+            <Phase
+              key={phase.id}
+              title={phase.name}
+              isFirst={phase.id === 1}
+              isDone={false}
+              optional={[]}
+            >
+              {phase.items?.map((item) => (
+                <Tile
+                  key={item.id}
+                  thumbnail={""}
+                  title={item.title}
+                  subtitle={""}
+                  year={2010}
+                  isChecked={false}
+                  isOptional={false}
+                  onHover={hover.set}
+                />
+              ))}
+            </Phase>
+          )
+      )}
     </div>
   );
 };
