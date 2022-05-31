@@ -24,8 +24,8 @@ import {
   o_agent_carterBackground,
   f_thor_the_dark_worldCover,
   f_thor_the_dark_worldBackground,
-  o_all_haile_the_kingCover,
-  o_all_haile_the_kingBackground,
+  o_all_hail_the_kingCover,
+  o_all_hail_the_kingBackground,
   f_captain_america_the_winter_soldierCover,
   f_captain_america_the_winter_soldierBackground,
   f_guardians_of_the_galaxyCover,
@@ -332,9 +332,9 @@ export const data: Data = {
         {
           title: "All Hail the King",
           genre: "oneshot",
-          id: "o-all_haile_the_king",
-          cover: o_all_haile_the_kingCover,
-          background: o_all_haile_the_kingBackground,
+          id: "o-all_hail_the_king",
+          cover: o_all_hail_the_kingCover,
+          background: o_all_hail_the_kingBackground,
         },
         {
           title: "Captain America: The Winter Soldier",

@@ -8,7 +8,7 @@ export const Root = () => {
   >(null);
 
   return (
-    <Layout>
+    <Layout hover={currentHover}>
       <MarvelView
         hover={{
           set: setCurrentHover,

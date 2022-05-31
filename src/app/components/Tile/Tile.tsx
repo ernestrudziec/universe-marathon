@@ -4,8 +4,6 @@ import { ReactComponent as NetflixIcon } from "../../../assets/platforms/netflix
 import { ReactComponent as AmazonPrimeIcon } from "../../../assets/platforms/amazon_prime.svg";
 import { ReactComponent as HBOIcon } from "../../../assets/platforms/hbo.svg";
 
-import { ReactComponent as EmptyCheckboxIcon } from "../../../assets/icons/empty_checkbox.svg";
-import { ReactComponent as FullCheckboxIcon } from "../../../assets/icons/full_checkbox.svg";
 import { Item, PhaseShow } from "../../../data/types";
 
 export interface TileProps {
@@ -16,12 +14,11 @@ export interface TileProps {
 }
 
 export const Tile = (props: TileProps) => {
-  const { data, isChecked, isOptional, onHover } = props;
+  const { data, isOptional, onHover } = props;
 
   return (
     <div
-      onMouseEnter={() => onHover(data.title)}
-      onMouseLeave={() => onHover(null)}
+      onMouseEnter={() => onHover(data.background ?? null)}
       className={`${styles.wrapper} ${
         isOptional && styles.isOptional
       }`}
@@ -41,13 +38,13 @@ export const Tile = (props: TileProps) => {
           {/* <h4>{subtitle}</h4> */}
         </div>
         <div className={styles.actions}>
-          <button className={styles.checkbox}>
+          {/* <button className={styles.checkbox}>
             {isChecked ? (
               <FullCheckboxIcon width={20} height={20} />
             ) : (
               <EmptyCheckboxIcon width={20} height={20} />
             )}
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

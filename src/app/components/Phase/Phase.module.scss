@@ -70,7 +70,9 @@
 
 .canonical {
   align-items: center;
+  backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -109,7 +111,9 @@
 
 .optionalTilesWrapper {
   align-items: center;
+  backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   display: flex;
   flex-wrap: wrap;

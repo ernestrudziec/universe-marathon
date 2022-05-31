@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "framer-motion": "^6.3.6",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },

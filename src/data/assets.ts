@@ -34,8 +34,8 @@ import o_agent_carterBackground from "../assets/items/phases/2/o-agent_carter/ba
 import f_thor_the_dark_worldCover from "../assets/items/phases/2/f-thor_the_dark_world/cover.jpg";
 import f_thor_the_dark_worldBackground from "../assets/items/phases/2/f-thor_the_dark_world/background.jpg";
 
-import o_all_haile_the_kingCover from "../assets/items/phases/2/o-all_haile_the_king/cover.jpg";
-import o_all_haile_the_kingBackground from "../assets/items/phases/2/o-all_haile_the_king/background.jpg";
+import o_all_hail_the_kingCover from "../assets/items/phases/2/o-all_hail_the_king/cover.jpg";
+import o_all_hail_the_kingBackground from "../assets/items/phases/2/o-all_hail_the_king/background.jpg";
 
 import f_captain_america_the_winter_soldierCover from "../assets/items/phases/2/f-captain_america_the_winter_soldier/cover.jpg";
 import f_captain_america_the_winter_soldierBackground from "../assets/items/phases/2/f-captain_america_the_winter_soldier/background.jpg";
@@ -52,23 +52,23 @@ import o_whih_1Background from "../assets/items/phases/2/o-whih_1/background.jpg
 import f_ant_man_1Cover from "../assets/items/phases/2/f-ant_man_1/cover.jpg";
 import f_ant_man_1Background from "../assets/items/phases/2/f-ant_man_1/background.jpg";
 
-import s_agents_of_shield_s1Cover from "../assets/items/phases/2/s-agents_of_shield:s1/cover.jpg";
-import s_agents_of_shield_s1Background from "../assets/items/phases/2/s-agents_of_shield:s1/background.jpg";
+import s_agents_of_shield_s1Cover from "../assets/items/phases/2/s-agents_of_shield.s1/cover.jpg";
+import s_agents_of_shield_s1Background from "../assets/items/phases/2/s-agents_of_shield.s1/background.jpg";
 
-import s_agents_of_shield_s2Cover from "../assets/items/phases/2/s-agents_of_shield:s2/cover.jpg";
-import s_agents_of_shield_s2Background from "../assets/items/phases/2/s-agents_of_shield:s2/background.jpg";
+import s_agents_of_shield_s2Cover from "../assets/items/phases/2/s-agents_of_shield.s2/cover.jpg";
+import s_agents_of_shield_s2Background from "../assets/items/phases/2/s-agents_of_shield.s2/background.jpg";
 
-import s_agent_carter_s1Cover from "../assets/items/phases/2/s-agent_carter:s1/cover.jpg";
-import s_agent_carter_s1Background from "../assets/items/phases/2/s-agent_carter:s1/background.jpg";
+import s_agent_carter_s1Cover from "../assets/items/phases/2/s-agent_carter.s1/cover.jpg";
+import s_agent_carter_s1Background from "../assets/items/phases/2/s-agent_carter.s1/background.jpg";
 
 import o_whih_2Cover from "../assets/items/phases/2.5/o-whih_2/cover.jpg";
 import o_whih_2Background from "../assets/items/phases/2.5/o-whih_2/background.jpg";
 
-import s_agents_of_shield_s3Cover from "../assets/items/phases/2.5/s-agents_of_shield:s3/cover.jpg";
-import s_agents_of_shield_s3Background from "../assets/items/phases/2.5/s-agents_of_shield:s3/background.jpg";
+import s_agents_of_shield_s3Cover from "../assets/items/phases/2.5/s-agents_of_shield.s3/cover.jpg";
+import s_agents_of_shield_s3Background from "../assets/items/phases/2.5/s-agents_of_shield.s3/background.jpg";
 
-import s_agent_carter_s2Cover from "../assets/items/phases/2.5/s-agent_carter:s2/cover.jpg";
-import s_agent_carter_s2Background from "../assets/items/phases/2.5/s-agent_carter:s2/background.jpg";
+import s_agent_carter_s2Cover from "../assets/items/phases/2.5/s-agent_carter.s2/cover.jpg";
+import s_agent_carter_s2Background from "../assets/items/phases/2.5/s-agent_carter.s2/background.jpg";
 
 import f_captain_america_civil_warCover from "../assets/items/phases/3/f-captain_america_civil_war/cover.jpg";
 import f_captain_america_civil_warBackground from "../assets/items/phases/3/f-captain_america_civil_war/background.jpg";
@@ -115,8 +115,8 @@ import f_avengers_endgameBackground from "../assets/items/phases/3/f-avengers_en
 import f_spider_man_far_from_homeCover from "../assets/items/phases/3/f-spider_man_far_from_home/cover.jpg";
 import f_spider_man_far_from_homeBackground from "../assets/items/phases/3/f-spider_man_far_from_home/background.jpg";
 
-import s_agents_of_shield_s4Cover from "../assets/items/phases/3/s-agents_of_shield:s4/cover.jpg";
-import s_agents_of_shield_s4Background from "../assets/items/phases/3/s-agents_of_shield:s4/background.jpg";
+import s_agents_of_shield_s4Cover from "../assets/items/phases/3/s-agents_of_shield.s4/cover.jpg";
+import s_agents_of_shield_s4Background from "../assets/items/phases/3/s-agents_of_shield.s4/background.jpg";
 
 import s_helstromCover from "../assets/items/phases/3/s-helstrom/cover.jpg";
 import s_helstromBackground from "../assets/items/phases/3/s-helstrom/background.jpg";
@@ -124,29 +124,29 @@ import s_helstromBackground from "../assets/items/phases/3/s-helstrom/background
 import s_inhumansCover from "../assets/items/phases/3/s-inhumans/cover.jpg";
 import s_inhumansBackground from "../assets/items/phases/3/s-inhumans/background.jpg";
 
-import s_agents_of_shield_s5Cover from "../assets/items/phases/3/s-agents_of_shield:s5/cover.jpg";
-import s_agents_of_shield_s5Background from "../assets/items/phases/3/s-agents_of_shield:s5/background.jpg";
+import s_agents_of_shield_s5Cover from "../assets/items/phases/3/s-agents_of_shield.s5/cover.jpg";
+import s_agents_of_shield_s5Background from "../assets/items/phases/3/s-agents_of_shield.s5/background.jpg";
 
-import s_runaways_s1Cover from "../assets/items/phases/3/s-runaways:s1/cover.jpg";
-import s_runaways_s1Background from "../assets/items/phases/3/s-runaways:s1/background.jpg";
+import s_runaways_s1Cover from "../assets/items/phases/3/s-runaways.s1/cover.jpg";
+import s_runaways_s1Background from "../assets/items/phases/3/s-runaways.s1/background.jpg";
 
-import s_agents_of_shield_s6Cover from "../assets/items/phases/3/s-agents_of_shield:s6/cover.jpg";
-import s_agents_of_shield_s6Background from "../assets/items/phases/3/s-agents_of_shield:s6/background.jpg";
+import s_agents_of_shield_s6Cover from "../assets/items/phases/3/s-agents_of_shield.s6/cover.jpg";
+import s_agents_of_shield_s6Background from "../assets/items/phases/3/s-agents_of_shield.s6/background.jpg";
 
-import s_cloak_and_dagger_s1Cover from "../assets/items/phases/3/s-cloak_and_dagger:s1/cover.jpg";
-import s_cloak_and_dagger_s1Background from "../assets/items/phases/3/s-cloak_and_dagger:s1/background.jpg";
+import s_cloak_and_dagger_s1Cover from "../assets/items/phases/3/s-cloak_and_dagger.s1/cover.jpg";
+import s_cloak_and_dagger_s1Background from "../assets/items/phases/3/s-cloak_and_dagger.s1/background.jpg";
 
-import s_runaways_s2Cover from "../assets/items/phases/3/s-runaways:s2/cover.jpg";
-import s_runaways_s2Background from "../assets/items/phases/3/s-runaways:s2/background.jpg";
+import s_runaways_s2Cover from "../assets/items/phases/3/s-runaways.s2/cover.jpg";
+import s_runaways_s2Background from "../assets/items/phases/3/s-runaways.s2/background.jpg";
 
-import s_cloak_and_dagger_s2Cover from "../assets/items/phases/3/s-cloak_and_dagger:s2/cover.jpg";
-import s_cloak_and_dagger_s2Background from "../assets/items/phases/3/s-cloak_and_dagger:s2/background.jpg";
+import s_cloak_and_dagger_s2Cover from "../assets/items/phases/3/s-cloak_and_dagger.s2/cover.jpg";
+import s_cloak_and_dagger_s2Background from "../assets/items/phases/3/s-cloak_and_dagger.s2/background.jpg";
 
-import s_runaways_s3Cover from "../assets/items/phases/3/s-runaways:s3/cover.jpg";
-import s_runaways_s3Background from "../assets/items/phases/3/s-runaways:s3/background.jpg";
+import s_runaways_s3Cover from "../assets/items/phases/3/s-runaways.s3/cover.jpg";
+import s_runaways_s3Background from "../assets/items/phases/3/s-runaways.s3/background.jpg";
 
-import s_agents_of_shield_s7Cover from "../assets/items/phases/3.5/s-agents_of_shield:s7/cover.jpg";
-import s_agents_of_shield_s7Background from "../assets/items/phases/3.5/s-agents_of_shield:s7/background.jpg";
+import s_agents_of_shield_s7Cover from "../assets/items/phases/3.5/s-agents_of_shield.s7/cover.jpg";
+import s_agents_of_shield_s7Background from "../assets/items/phases/3.5/s-agents_of_shield.s7/background.jpg";
 
 import f_black_widowCover from "../assets/items/phases/4/f-black_widow/cover.jpg";
 import f_black_widowBackground from "../assets/items/phases/4/f-black_widow/background.jpg";
@@ -172,8 +172,8 @@ import s_the_falcon_and_the_winter_soldierBackground from "../assets/items/phase
 import s_lokiCover from "../assets/items/phases/4/s-loki/cover.jpg";
 import s_lokiBackground from "../assets/items/phases/4/s-loki/background.jpg";
 
-import s_what_if_s1Cover from "../assets/items/phases/4/s-what_if:s1/cover.jpg";
-import s_what_if_s1Background from "../assets/items/phases/4/s-what_if:s1/background.jpg";
+import s_what_if_s1Cover from "../assets/items/phases/4/s-what_if.s1/cover.jpg";
+import s_what_if_s1Background from "../assets/items/phases/4/s-what_if.s1/background.jpg";
 
 import s_hawkeyeCover from "../assets/items/phases/4/s-hawkeye/cover.jpg";
 import s_hawkeyeBackground from "../assets/items/phases/4/s-hawkeye/background.jpg";
@@ -181,44 +181,44 @@ import s_hawkeyeBackground from "../assets/items/phases/4/s-hawkeye/background.j
 import s_moon_knightCover from "../assets/items/phases/4/s-moon_knight/cover.jpg";
 import s_moon_knightBackground from "../assets/items/phases/4/s-moon_knight/background.jpg";
 
-import s_daredevil_s1Cover from "../assets/items/groups/netflix_originals/s-daredevil:s1/cover.jpg";
-import s_daredevil_s1Background from "../assets/items/groups/netflix_originals/s-daredevil:s1/background.jpg";
+import s_daredevil_s1Cover from "../assets/items/groups/netflix_originals/s-daredevil.s1/cover.jpg";
+import s_daredevil_s1Background from "../assets/items/groups/netflix_originals/s-daredevil.s1/background.jpg";
 
-import s_jessica_jones_s1Cover from "../assets/items/groups/netflix_originals/s-jessica_jones:s1/cover.jpg";
-import s_jessica_jones_s1Background from "../assets/items/groups/netflix_originals/s-jessica_jones:s1/background.jpg";
+import s_jessica_jones_s1Cover from "../assets/items/groups/netflix_originals/s-jessica_jones.s1/cover.jpg";
+import s_jessica_jones_s1Background from "../assets/items/groups/netflix_originals/s-jessica_jones.s1/background.jpg";
 
-import s_daredevil_s2Cover from "../assets/items/groups/netflix_originals/s-daredevil:s2/cover.jpg";
-import s_daredevil_s2Background from "../assets/items/groups/netflix_originals/s-daredevil:s2/background.jpg";
+import s_daredevil_s2Cover from "../assets/items/groups/netflix_originals/s-daredevil.s2/cover.jpg";
+import s_daredevil_s2Background from "../assets/items/groups/netflix_originals/s-daredevil.s2/background.jpg";
 
-import s_luke_cage_s1Cover from "../assets/items/groups/netflix_originals/s-luke_cage:s1/cover.jpg";
-import s_luke_cage_s1Background from "../assets/items/groups/netflix_originals/s-luke_cage:s1/background.jpg";
+import s_luke_cage_s1Cover from "../assets/items/groups/netflix_originals/s-luke_cage.s1/cover.jpg";
+import s_luke_cage_s1Background from "../assets/items/groups/netflix_originals/s-luke_cage.s1/background.jpg";
 
-import s_iron_fist_s1Cover from "../assets/items/groups/netflix_originals/s-iron_fist:s1/cover.jpg";
-import s_iron_fist_s1Background from "../assets/items/groups/netflix_originals/s-iron_fist:s1/background.jpg";
+import s_iron_fist_s1Cover from "../assets/items/groups/netflix_originals/s-iron_fist.s1/cover.jpg";
+import s_iron_fist_s1Background from "../assets/items/groups/netflix_originals/s-iron_fist.s1/background.jpg";
 
 import s_the_defendersCover from "../assets/items/groups/netflix_originals/s-the_defenders/cover.jpg";
 import s_the_defendersBackground from "../assets/items/groups/netflix_originals/s-the_defenders/background.jpg";
 
-import s_the_punisher_s1Cover from "../assets/items/groups/netflix_originals/s-the_punisher:s1/cover.jpg";
-import s_the_punisher_s1Background from "../assets/items/groups/netflix_originals/s-the_punisher:s1/background.jpg";
+import s_the_punisher_s1Cover from "../assets/items/groups/netflix_originals/s-the_punisher.s1/cover.jpg";
+import s_the_punisher_s1Background from "../assets/items/groups/netflix_originals/s-the_punisher.s1/background.jpg";
 
-import s_jessica_jones_s2Cover from "../assets/items/groups/netflix_originals/s-jessica_jones:s2/cover.jpg";
-import s_jessica_jones_s2Background from "../assets/items/groups/netflix_originals/s-jessica_jones:s2/background.jpg";
+import s_jessica_jones_s2Cover from "../assets/items/groups/netflix_originals/s-jessica_jones.s2/cover.jpg";
+import s_jessica_jones_s2Background from "../assets/items/groups/netflix_originals/s-jessica_jones.s2/background.jpg";
 
-import s_luke_cage_s2Cover from "../assets/items/groups/netflix_originals/s-luke_cage:s2/cover.jpg";
-import s_luke_cage_s2Background from "../assets/items/groups/netflix_originals/s-luke_cage:s2/background.jpg";
+import s_luke_cage_s2Cover from "../assets/items/groups/netflix_originals/s-luke_cage.s2/cover.jpg";
+import s_luke_cage_s2Background from "../assets/items/groups/netflix_originals/s-luke_cage.s2/background.jpg";
 
-import s_iron_fist_s2Cover from "../assets/items/groups/netflix_originals/s-iron_fist:s2/cover.jpg";
-import s_iron_fist_s2Background from "../assets/items/groups/netflix_originals/s-iron_fist:s2/background.jpg";
+import s_iron_fist_s2Cover from "../assets/items/groups/netflix_originals/s-iron_fist.s2/cover.jpg";
+import s_iron_fist_s2Background from "../assets/items/groups/netflix_originals/s-iron_fist.s2/background.jpg";
 
-import s_daredevil_s3Cover from "../assets/items/groups/netflix_originals/s-daredevil:s3/cover.jpg";
-import s_daredevil_s3Background from "../assets/items/groups/netflix_originals/s-daredevil:s3/background.jpg";
+import s_daredevil_s3Cover from "../assets/items/groups/netflix_originals/s-daredevil.s3/cover.jpg";
+import s_daredevil_s3Background from "../assets/items/groups/netflix_originals/s-daredevil.s3/background.jpg";
 
-import s_the_punisher_s2Cover from "../assets/items/groups/netflix_originals/s-the_punisher:s2/cover.jpg";
-import s_the_punisher_s2Background from "../assets/items/groups/netflix_originals/s-the_punisher:s2/background.jpg";
+import s_the_punisher_s2Cover from "../assets/items/groups/netflix_originals/s-the_punisher.s2/cover.jpg";
+import s_the_punisher_s2Background from "../assets/items/groups/netflix_originals/s-the_punisher.s2/background.jpg";
 
-import s_jessica_jones_s3Cover from "../assets/items/groups/netflix_originals/s-jessica_jones:s3/cover.jpg";
-import s_jessica_jones_s3Background from "../assets/items/groups/netflix_originals/s-jessica_jones:s3/background.jpg";
+import s_jessica_jones_s3Cover from "../assets/items/groups/netflix_originals/s-jessica_jones.s3/cover.jpg";
+import s_jessica_jones_s3Background from "../assets/items/groups/netflix_originals/s-jessica_jones.s3/background.jpg";
 
 import f_spider_man_1Cover from "../assets/items/groups/sam_raimi_spider-man_trilogy/f-spider_man_1/cover.jpg";
 import f_spider_man_1Background from "../assets/items/groups/sam_raimi_spider-man_trilogy/f-spider_man_1/background.jpg";
@@ -317,8 +317,8 @@ export {
   o_agent_carterBackground,
   f_thor_the_dark_worldCover,
   f_thor_the_dark_worldBackground,
-  o_all_haile_the_kingCover,
-  o_all_haile_the_kingBackground,
+  o_all_hail_the_kingCover,
+  o_all_hail_the_kingBackground,
   f_captain_america_the_winter_soldierCover,
   f_captain_america_the_winter_soldierBackground,
   f_guardians_of_the_galaxyCover,

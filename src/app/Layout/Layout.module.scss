@@ -1,7 +1,9 @@
 .wrapper {
-  background: linear-gradient(-50deg,
-  rgb(0, 0, 0) -10%,
-  rgb(80, 80, 80) 150%);
+  background: linear-gradient(
+    -50deg,
+    rgb(29, 29, 29) -10%,
+    rgb(41, 41, 41) 150%
+  );
 
   min-height: 100%;
   position: relative;
@@ -65,15 +67,25 @@
   z-index: 0;
 
   &::before {
-    background: linear-gradient(20deg,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 0) 80%);
+    // background: linear-gradient(
+    //   10deg,
+    //   rgba(17, 17, 17, 0.9) 30%,
+    //   rgba(27, 27, 27, 0) 80%
+    // );
+    background: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(2, 0, 36, 0) 90%,
+      rgba(0, 0, 0, 0) 100%
+    );
+
     bottom: 0;
-    content: '';
+    content: "";
     left: 0;
     position: absolute;
     right: 0;
     top: 0;
+
     z-index: -2;
   }
 
@@ -81,7 +93,6 @@
     animation: backgroundAnimation 40s infinite;
     height: 120%;
     object-fit: cover;
-    opacity: 0.53;
     position: absolute;
     width: 120%;
     z-index: -3;

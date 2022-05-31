@@ -3,14 +3,14 @@ import styles from "./Phase.module.scss";
 
 import { ReactNode } from "react";
 import { Tile } from "../Tile";
-import { PhaseShow, Item } from "../../../data/types";
+import { PhaseShows } from "../../../data/types";
 
 export interface PhaseProps {
   children: ReactNode;
   title: JSX.Element | string;
   isFirst: boolean;
   isDone: boolean;
-  optional: Array<Item | PhaseShow>;
+  optional: PhaseShows;
 }
 
 export const Phase = (props: PhaseProps) => {
@@ -30,7 +30,7 @@ export const Phase = (props: PhaseProps) => {
       <h2 className={styles.title}>{title}</h2>
       <div className={styles.content}>
         <div className={styles.canonical}>{children}</div>
-        {optional.length > 0 && (
+        {optional && optional.length > 0 && (
           <div className={styles.optional}>
             <div className={styles.optionalWrapper}>
               <div className={styles.sideSeparator}>
@@ -48,7 +48,7 @@ export const Phase = (props: PhaseProps) => {
                     key={item.id}
                     data={item}
                     isChecked={false}
-                    isOptional={false}
+                    isOptional={true}
                     onHover={() => console.log("hello")}
                   />
                 ))}
