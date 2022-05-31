@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.2.0](https://github.com/ernestrudziec/universe-marathon/compare/v1.1.0...v1.2.0) (2022-05-31)
+
+
+### Features
+
+* added exports and imports ([dfc7a02](https://github.com/ernestrudziec/universe-marathon/commit/dfc7a02abe137641310405db08d4baf47863e4b2))
+* animation and design improvements ([b54b74c](https://github.com/ernestrudziec/universe-marathon/commit/b54b74ca19a61704fda6d95728c98ceb4c33e44e))
+* covers and backgrounds ([fb317fb](https://github.com/ernestrudziec/universe-marathon/commit/fb317fbd4348477937152f8eb5328d47506398c7))
+* improvements ([5ef3f03](https://github.com/ernestrudziec/universe-marathon/commit/5ef3f0347aba7eb5614b6eb91f5725ecfa460c9b))
+* mapped data v1 ([323e67e](https://github.com/ernestrudziec/universe-marathon/commit/323e67ec109a9b43f7037c2eb3c68629c9976107))
+* mapped data v1 ([7f3d06e](https://github.com/ernestrudziec/universe-marathon/commit/7f3d06eb3993bbaebf7b09f0aad3b7385a4e1448))
+* merge with feature/covers ([7737785](https://github.com/ernestrudziec/universe-marathon/commit/77377855dcd5ce110a52efb73e92bd1030e93e38))
+* pics ([037beac](https://github.com/ernestrudziec/universe-marathon/commit/037beac31d961f552229675e2699420ec70b929c))
+* **wip:** directories ([e27ba84](https://github.com/ernestrudziec/universe-marathon/commit/e27ba8460fa5fd7d6b186510da12dafd19797dea))
+
+
+### Bug Fixes
+
+* failing build ([d2cd50a](https://github.com/ernestrudziec/universe-marathon/commit/d2cd50a4cd38cede8f1555a0c88c8ac961d2be48))
+* failing run ([f2feeea](https://github.com/ernestrudziec/universe-marathon/commit/f2feeea928336a2fcfd1195c0cf15cad44c06e34))
+* resolve conflicts ([ecf529b](https://github.com/ernestrudziec/universe-marathon/commit/ecf529b2cb84e77d32f195a20413672ba4908de5))
+
 ## [1.1.0](https://github.com/ernestrudziec/universe-marathon/compare/v1.0.0...v1.1.0) (2022-05-29)
 
 
