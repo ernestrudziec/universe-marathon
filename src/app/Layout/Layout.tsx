@@ -3,7 +3,7 @@ import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header";
 import styles from "./Layout.module.scss";
 
-import ThorBackground from "../../assets/covers/thor/background.jpg";
+import ThorBackground from "../../assets/backgrounds/background1.jpg";
 
 interface LayoutProps {
   children: ReactNode;
