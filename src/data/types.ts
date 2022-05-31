@@ -36,6 +36,8 @@ export interface Item {
   unlocksWith?: Superset;
   stronglyRecommendedBefore?: Superset;
   mightWatchBefore?: Superset;
+  cover?: string;
+  background?: string;
 }
 
 export type Items = Array<Item> | null;
@@ -46,6 +48,8 @@ export interface PhaseShow {
   id: string;
   tier: Tiers;
   unlocksWith?: Superset;
+  cover?: string;
+  background?: string;
 }
 
 export type PhaseShows = Array<PhaseShow> | null;
