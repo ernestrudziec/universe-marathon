@@ -1,5 +1,5 @@
 /* eslint-disable no-sparse-arrays */
-type Genre =
+export type Genre =
   | "mcuFilm"
   | "nonMcuFilm"
   | "nonMcuStronglyRecommendedFilm"
@@ -10,26 +10,26 @@ type Genre =
   | "disneyPlusShow"
   | "amazonPrimeShow";
 
-type ItemId = string;
-type ItemIds = Array<ItemId> | null;
+export type ItemId = string;
+export type ItemIds = Array<ItemId> | null;
 
-type GroupId = string;
-type GroupIds = Array<GroupId> | null;
+export type GroupId = string;
+export type GroupIds = Array<GroupId> | null;
 
-interface Collection {
+export interface Collection {
   items: ItemIds;
   groups: GroupIds;
 }
 
-interface Superset {
+export interface Superset {
   superfan: Collection | null;
   casual: Collection | null;
   speedrun: Collection | null;
 }
 
-type Tiers = 1 | 2 | 3 | 4 | 5;
+export type Tiers = 1 | 2 | 3 | 4 | 5;
 
-interface Item {
+export interface Item {
   title: string;
   genre: Genre;
   id: ItemId;
@@ -39,9 +39,9 @@ interface Item {
   mightWatchBefore?: Superset;
 }
 
-type Items = Array<Item> | null;
+export type Items = Array<Item> | null;
 
-interface PhaseShow {
+export interface PhaseShow {
   title: string;
   genre: Genre;
   id: string;
@@ -49,9 +49,9 @@ interface PhaseShow {
   unlocksWith?: Superset;
 }
 
-type PhaseShows = Array<PhaseShow> | null;
+export type PhaseShows = Array<PhaseShow> | null;
 
-interface Phase {
+export interface Phase {
   name: string;
   id: number;
   isMid: boolean;
@@ -62,7 +62,7 @@ interface Phase {
   phaseShowsDevelopment?: PhaseShows;
 }
 
-interface Group {
+export interface Group {
   name: string;
   id: GroupId;
   watchBefore: string | null;
@@ -71,15 +71,15 @@ interface Group {
   development?: Items;
 }
 
-type Phases = Array<Phase>;
-type Groups = Array<Group>;
+export type Phases = Array<Phase>;
+export type Groups = Array<Group>;
 
-interface Data {
+export interface Data {
   phases: Phases;
   groups: Groups;
 }
 
-const data: Data = {
+export const data: Data = {
   phases: [
     {
       name: "Before MCU",
@@ -1112,5 +1112,3 @@ const data: Data = {
     },
   ],
 };
-
-console.log(data);

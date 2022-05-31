@@ -14,6 +14,7 @@ export interface TileProps {
   year: number;
   isChecked: boolean;
   isOptional: boolean;
+  onHover: (title: string | null) => void;
 }
 
 export const Tile = (props: TileProps) => {
@@ -24,10 +25,13 @@ export const Tile = (props: TileProps) => {
     year,
     isChecked,
     isOptional,
+    onHover,
   } = props;
 
   return (
     <div
+      onMouseEnter={() => onHover(title)}
+      onMouseLeave={() => onHover(null)}
       className={`${styles.wrapper} ${
         isOptional && styles.isOptional
       }`}

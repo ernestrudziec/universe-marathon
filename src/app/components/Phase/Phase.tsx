@@ -6,7 +6,7 @@ import { Tile, TileProps } from "../Tile";
 
 export interface PhaseProps {
   children: ReactNode;
-  title: JSX.Element;
+  title: JSX.Element | string;
   isFirst: boolean;
   isDone: boolean;
   optional: Array<TileProps>;
