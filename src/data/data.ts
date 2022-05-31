@@ -107,7 +107,7 @@ export const data: Data = {
         {
           title: "All Hail the King",
           genre: "oneshot",
-          id: "o-all_haile_the_king",
+          id: "o-all_hail_the_king",
         },
         {
           title: "Captain America: The Winter Soldier",
