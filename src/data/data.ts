@@ -1033,5 +1033,3 @@ export const data: Data = {
     },
   ],
 };
-
-console.log(data);
