@@ -2,14 +2,15 @@
 import styles from "./Phase.module.scss";
 
 import { ReactNode } from "react";
-import { Tile, TileProps } from "../Tile";
+import { Tile } from "../Tile";
+import { PhaseShow, Item } from "../../../data/types";
 
 export interface PhaseProps {
   children: ReactNode;
   title: JSX.Element | string;
   isFirst: boolean;
   isDone: boolean;
-  optional: Array<TileProps>;
+  optional: Array<Item | PhaseShow>;
 }
 
 export const Phase = (props: PhaseProps) => {
@@ -42,8 +43,14 @@ export const Phase = (props: PhaseProps) => {
                 <h2 className={styles.title}>Optional</h2>
               </div>
               <div className={styles.optionalTilesWrapper}>
-                {optional.map((tile) => (
-                  <Tile key={tile.title} {...tile} />
+                {optional.map((item) => (
+                  <Tile
+                    key={item.id}
+                    data={item}
+                    isChecked={false}
+                    isOptional={false}
+                    onHover={() => console.log("hello")}
+                  />
                 ))}
               </div>
             </div>

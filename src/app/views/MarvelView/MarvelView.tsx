@@ -35,10 +35,7 @@ export const MarvelView = ({ hover }: MarvelViewProps) => {
               {phase.items?.map((item) => (
                 <Tile
                   key={item.id}
-                  thumbnail={""}
-                  title={item.title}
-                  subtitle={""}
-                  year={2010}
+                  data={item}
                   isChecked={false}
                   isOptional={false}
                   onHover={hover.set}

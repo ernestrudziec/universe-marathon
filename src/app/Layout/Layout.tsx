@@ -3,7 +3,7 @@ import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header";
 import styles from "./Layout.module.scss";
 
-import ThorBackground from "../../assets/backgrounds/background1.jpg";
+// import Background from "../../items/assets/phases/1/f-iron_man_2/background.jpg";
 
 interface LayoutProps {
   children: ReactNode;
@@ -13,7 +13,7 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.background}>
-        <img src={ThorBackground} />
+        {/* <img src={Background} /> */}
       </div>
       <div className={styles.container}>
         <Header />

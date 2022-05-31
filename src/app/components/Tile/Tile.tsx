@@ -6,31 +6,21 @@ import { ReactComponent as HBOIcon } from "../../../assets/platforms/hbo.svg";
 
 import { ReactComponent as EmptyCheckboxIcon } from "../../../assets/icons/empty_checkbox.svg";
 import { ReactComponent as FullCheckboxIcon } from "../../../assets/icons/full_checkbox.svg";
+import { Item, PhaseShow } from "../../../data/types";
 
 export interface TileProps {
-  thumbnail: string;
-  title: string;
-  subtitle: string;
-  year: number;
+  data: Item | PhaseShow;
   isChecked: boolean;
   isOptional: boolean;
   onHover: (title: string | null) => void;
 }
 
 export const Tile = (props: TileProps) => {
-  const {
-    thumbnail,
-    title,
-    subtitle,
-    year,
-    isChecked,
-    isOptional,
-    onHover,
-  } = props;
+  const { data, isChecked, isOptional, onHover } = props;
 
   return (
     <div
-      onMouseEnter={() => onHover(title)}
+      onMouseEnter={() => onHover(data.title)}
       onMouseLeave={() => onHover(null)}
       className={`${styles.wrapper} ${
         isOptional && styles.isOptional
@@ -42,13 +32,13 @@ export const Tile = (props: TileProps) => {
           <AmazonPrimeIcon />
           <HBOIcon />
         </div>
-        <div className={styles.year}>{year}</div>
-        <img src={thumbnail} />
+        <div className={styles.year}>{data.genre}</div>
+        <img src={data.cover} />
       </div>
       <div className={styles.footer}>
         <div className={styles.title}>
-          <h3>{title}</h3>
-          <h4>{subtitle}</h4>
+          <h3>{data.title}</h3>
+          {/* <h4>{subtitle}</h4> */}
         </div>
         <div className={styles.actions}>
           <button className={styles.checkbox}>
