@@ -5,6 +5,14 @@ import { ReactComponent as AmazonPrimeIcon } from "../../../assets/platforms/ama
 import { ReactComponent as HBOIcon } from "../../../assets/platforms/hbo.svg";
 
 import { Item, PhaseShow } from "../../../data/types";
+import { toggleItem } from "../../store/slices/itemsSlice";
+
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectItemById,
+  selectItems,
+} from "../../store/selectors";
+import { useEffect } from "react";
 
 export interface TileProps {
   data: Item | PhaseShow;
@@ -15,9 +23,13 @@ export interface TileProps {
 
 export const Tile = (props: TileProps) => {
   const { data, isOptional, onHover } = props;
+  const dispatch = useDispatch();
+  const items = useSelector(selectItems);
+  const itemState = useSelector(selectItemById)(data.id);
 
   return (
     <div
+      onClick={() => dispatch(toggleItem({ id: data.id }))}
       onMouseEnter={() => onHover(data.background ?? null)}
       className={`${styles.wrapper} ${
         isOptional && styles.isOptional

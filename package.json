@@ -10,9 +10,14 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
     "framer-motion": "^6.3.6",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
+    "redux-persist": "^6.0.0",
+    "reselect": "^4.1.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.1",

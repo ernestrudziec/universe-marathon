@@ -11,11 +11,18 @@ export interface PhaseProps {
   isFirst: boolean;
   isDone: boolean;
   optional: PhaseShows;
+  onHover: (title: string | null) => void;
 }
 
 export const Phase = (props: PhaseProps) => {
-  const { children, title, isFirst, isDone, optional } =
-    props;
+  const {
+    children,
+    title,
+    isFirst,
+    isDone,
+    optional,
+    onHover,
+  } = props;
 
   return (
     <div className={styles.wrapper}>
@@ -49,7 +56,7 @@ export const Phase = (props: PhaseProps) => {
                     data={item}
                     isChecked={false}
                     isOptional={true}
-                    onHover={() => console.log("hello")}
+                    onHover={onHover}
                   />
                 ))}
               </div>

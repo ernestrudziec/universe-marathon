@@ -31,6 +31,7 @@ export const MarvelView = ({ hover }: MarvelViewProps) => {
               isFirst={phase.id === 1}
               isDone={false}
               optional={phase.phaseShows}
+              onHover={hover.set}
             >
               {phase.items?.map((item) => (
                 <Tile
