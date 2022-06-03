@@ -262,6 +262,7 @@ export const data: Data = {
           release: "September 13, 2011",
           cover: o_the_consultantCover,
           background: o_the_consultantBackground,
+          notice: "4 minutes",
         },
         {
           title:
@@ -273,6 +274,7 @@ export const data: Data = {
             o_a_funny_thing_happened_on_the_way_to_thors_hammerCover,
           background:
             o_a_funny_thing_happened_on_the_way_to_thors_hammerBackground,
+          notice: "4 minutes",
         },
         {
           title: "Marvel's The Avengers",
@@ -297,6 +299,7 @@ export const data: Data = {
           release: "September 25, 2012",
           cover: o_item_47Cover,
           background: o_item_47Background,
+          notice: "12 minutes",
         },
       ],
       phaseShows: null,
@@ -332,6 +335,7 @@ export const data: Data = {
           release: "September 3, 2013",
           cover: o_agent_carterCover,
           background: o_agent_carterBackground,
+          notice: "15 minutes",
         },
         {
           title: "Thor: The Dark World",
@@ -348,6 +352,7 @@ export const data: Data = {
           release: "February 4, 2014",
           cover: o_all_hail_the_kingCover,
           background: o_all_hail_the_kingBackground,
+          notice: "14 minutes",
         },
         {
           title: "Captain America: The Winter Soldier",
@@ -382,6 +387,7 @@ export const data: Data = {
           release: "July 2, 2015",
           cover: o_whih_1Cover,
           background: o_whih_1Background,
+          notice: "5 nanoepisodes",
         },
         {
           title: "Ant-Man",
@@ -443,6 +449,7 @@ export const data: Data = {
           release: "April 22, 2016",
           cover: o_whih_2Cover,
           background: o_whih_2Background,
+          notice: "5 nanoepisodes",
         },
       ],
       phaseShows: [
@@ -491,6 +498,7 @@ export const data: Data = {
           release: "August 28, 2016",
           cover: o_team_thor_1Cover,
           background: o_team_thor_1Background,
+          notice: "3.5 minutes",
         },
         {
           title: "Doctor Strange",
@@ -507,6 +515,7 @@ export const data: Data = {
           release: "February 14, 2017",
           cover: o_team_thor_2Cover,
           background: o_team_thor_2Background,
+          notice: "4.5 minutes",
         },
         {
           title: "Agents of S.H.I.E.L.D. Slingshot",
@@ -516,6 +525,7 @@ export const data: Data = {
           cover: o_agents_of_shield_slingshotCover,
           background:
             o_agents_of_shield_slingshotBackground,
+          notice: "6 short episodes",
         },
         {
           title: "Guardians of the Galaxy Vol. 2",
@@ -556,6 +566,7 @@ export const data: Data = {
           release: "February 20, 2018",
           cover: o_team_darrylCover,
           background: o_team_darrylBackground,
+          notice: "6 minutes",
         },
         {
           title: "Avengers: Infinity War",

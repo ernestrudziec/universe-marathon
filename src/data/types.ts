@@ -38,6 +38,7 @@ export interface Item {
   mightWatchBefore?: Superset;
   cover?: string;
   background?: string;
+  notice?: string;
 }
 
 export type Items = Array<Item> | null;
