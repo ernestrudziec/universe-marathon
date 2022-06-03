@@ -4,5 +4,4 @@ module.exports = {
   "./**/*.{js,jsx,ts,tsx,json,yml,yaml,css,scss,md,mdx,html}":
     ["prettier --write"],
   "src/**/*.{js,jsx,ts,tsx}": ["eslint --fix"],
-  "src/**/*.{css,scss}": ["stylelint --fix"],
 };

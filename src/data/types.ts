@@ -31,8 +31,8 @@ export type Tiers = 1 | 2 | 3 | 4 | 5;
 export interface Item {
   title: string;
   genre: Genre;
-  id: ItemId;
-  //ids start with "f" - for films, "s" - for shows, "o" - for oneshots and webisodes
+  id: ItemId; //ids start with "f" - for films, "s" - for shows, "o" - for oneshots and webisodes
+  release: string; //release date (U.S.)
   unlocksWith?: Superset;
   stronglyRecommendedBefore?: Superset;
   mightWatchBefore?: Superset;
@@ -46,6 +46,7 @@ export interface PhaseShow {
   title: string;
   genre: Genre;
   id: string;
+  release: string; //release date (U.S.)
   tier: Tiers;
   unlocksWith?: Superset;
   cover?: string;
