@@ -6,7 +6,7 @@ import {
 
 export interface Item {
   id: string;
-  state: "watched" | "skipped";
+  state: "watched" | "skipped" | "not_watched";
 }
 export interface ItemsState {
   items: Array<Item>;
@@ -22,7 +22,7 @@ export const itemsSlice = createSlice({
   reducers: {
     toggleItem: (
       state,
-      action: PayloadAction<{ id: string }>
+      action: PayloadAction<{ id: string; state: string }>
     ) => {
       // console.log(current(state.items));
       const currentItem = current(state.items).find(
@@ -43,9 +43,16 @@ export const itemsSlice = createSlice({
         ];
       } else {
         if (currentItem.state === "skipped") {
-          state.items = current(state.items).filter(
-            (item) => item.id !== action.payload.id
-          );
+          if (
+            action.payload.state ===
+            "not_interactive_skipped"
+          ) {
+            state.items[currentItemIndex].state = "watched";
+          } else {
+            state.items = current(state.items).filter(
+              (item) => item.id !== action.payload.id
+            );
+          }
         } else {
           state.items[currentItemIndex].state = "skipped";
         }

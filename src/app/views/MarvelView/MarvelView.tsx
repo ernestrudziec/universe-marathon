@@ -40,6 +40,7 @@ export const MarvelView = ({ hover }: MarvelViewProps) => {
                   isChecked={false}
                   isOptional={false}
                   onHover={hover.set}
+                  phaseItems={phase.items}
                 />
               ))}
             </Phase>

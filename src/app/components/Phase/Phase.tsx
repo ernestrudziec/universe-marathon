@@ -57,6 +57,7 @@ export const Phase = (props: PhaseProps) => {
                     isChecked={false}
                     isOptional={true}
                     onHover={onHover}
+                    phaseShows={optional}
                   />
                 ))}
               </div>

@@ -9,41 +9,113 @@ import { Item, PhaseShow } from "../../../data/types";
 import { toggleItem } from "../../store/slices/itemsSlice";
 
 import { useDispatch, useSelector } from "react-redux";
-import { selectItemById } from "../../store/selectors";
+import {
+  selectItemById,
+  selectItems,
+} from "../../store/selectors";
 
 import clsx from "clsx";
+import { useEffect } from "react";
 
 export interface TileProps {
   data: Item | PhaseShow;
   isChecked: boolean;
   isOptional: boolean;
   onHover: (title: string | null) => void;
+  phaseItems?: Array<Item> | null;
+  phaseShows?: Array<PhaseShow> | null;
 }
 
 export const Tile = (props: TileProps) => {
-  const { data, isOptional, onHover } = props;
+  const {
+    data,
+    isOptional,
+    onHover,
+    phaseShows,
+    phaseItems,
+  } = props;
+
   const dispatch = useDispatch();
-  // const items = useSelector(selectItems);
+  const items = useSelector(selectItems);
   const item = useSelector(selectItemById)(data.id);
 
+  const getIsBlocked = () => {
+    if (!phaseItems) return true;
+
+    const currentItemIndex = phaseItems.findIndex(
+      ({ id }) => id === item.id
+    );
+
+    if (currentItemIndex === 0) return false;
+
+    const previousItem = items.find(
+      ({ id }) => id === phaseItems[currentItemIndex - 1].id
+    );
+
+    console.log({ previousItem });
+    if (!previousItem) return true;
+
+    return false;
+  };
+
+  const getIsNotInteractive = () => {
+    if (getIsBlocked()) return true;
+
+    if (!phaseItems) return true;
+
+    const currentItemIndex = phaseItems.findIndex(
+      ({ id }) => id === item.id
+    );
+
+    if (currentItemIndex === phaseItems.length - 1)
+      return false;
+
+    const nextItem = items.find(
+      ({ id }) => id === phaseItems[currentItemIndex + 1].id
+    );
+
+    if (!nextItem) return false;
+
+    return true;
+  };
+
   const state = item.state;
-  const isBlocked = false;
+
+  const isBlocked = getIsBlocked();
+
   const isWatched = state === "watched" && !isBlocked;
   const isNotWatched =
     state === "not_watched" && !isBlocked;
   const isSkipped = state === "skipped" && !isBlocked;
 
-  // useEffect(() => {
-  //   console.log({ item });
-  // }, [item]);
+  const isNotInteractive =
+    getIsNotInteractive() && !isSkipped;
+
+  useEffect(() => {
+    console.log({ item, phaseShows, phaseItems });
+  }, [items]);
 
   return (
-    <div className={styles.outerWrapper}>
+    <div
+      className={clsx(styles.outerWrapper, {
+        [styles.isNotInteractive]: isNotInteractive,
+      })}
+    >
       <div
         onClick={() =>
-          dispatch(toggleItem({ id: data.id }))
+          (!getIsNotInteractive() || isSkipped) &&
+          dispatch(
+            toggleItem({
+              id: data.id,
+              state:
+                isSkipped && getIsNotInteractive()
+                  ? "not_interactive_skipped"
+                  : "",
+            })
+          )
         }
         onMouseEnter={() =>
+          !isNotInteractive &&
           onHover(data.background ?? null)
         }
         className={clsx(styles.wrapper, {

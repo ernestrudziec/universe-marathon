@@ -4,6 +4,17 @@
   margin: 1rem;
   margin-top: 0;
 
+  &.isNotInteractive {
+    opacity: 0.5;
+    &:hover {
+      transform: none;
+    }
+
+    * {
+      cursor: not-allowed;
+    }
+  }
+
   &:hover {
     cursor: pointer;
     transform: translateY(-5px);
@@ -71,6 +82,17 @@
   }
 
   &.isNotWatched {
+    box-shadow: 0 -3px 120px -30px rgba(255, 255, 255, 0.5);
+
+    .thumbnail {
+      &::before {
+        background: linear-gradient(
+          -60deg,
+          rgba(255, 255, 255, 0.3) 10%,
+          rgba(228, 228, 228, 0.1) 50%
+        );
+      }
+    }
   }
 
   &.isWatched {
