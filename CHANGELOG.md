@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.3.0](https://github.com/ernestrudziec/universe-marathon/compare/v1.2.0...v1.3.0) (2022-06-04)
+
+
+### Features
+
+* redux persist ([836bd58](https://github.com/ernestrudziec/universe-marathon/commit/836bd58670d085343660deb4e7361255ba031b63))
+* **wip:** states of tiles ([19841c1](https://github.com/ernestrudziec/universe-marathon/commit/19841c171bef798a392ae7983924ebde49f6ae07))
+* **wip:** states of tiles ([2df3d9e](https://github.com/ernestrudziec/universe-marathon/commit/2df3d9e347c3a5fbf7764ff03e2ecb5ebcbcd3d2))
+* **wip:** states of tiles ([04b41ea](https://github.com/ernestrudziec/universe-marathon/commit/04b41ea7169e53082a96ae45542d8d348f88bedb))
+
 ## [1.2.0](https://github.com/ernestrudziec/universe-marathon/compare/v1.1.0...v1.2.0) (2022-05-31)
 
 
