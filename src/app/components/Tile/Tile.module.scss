@@ -1,11 +1,37 @@
-.wrapper {
+.outerWrapper {
+  transition: 0.3s all ease-out;
+  max-width: 200px;
   margin: 1rem;
+  margin-top: 0;
+
+  &:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+
+    .wrapper {
+      &::before {
+        opacity: 1;
+        transform: rotate(-7deg) translateY(0%);
+      }
+    }
+  }
+}
+
+.wrapper {
   overflow: hidden;
   position: relative;
   transition: 0.3s all;
   width: 200px;
+  height: 300px;
+  user-select: none; /* supported by Chrome and Opera */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
 
   &::before {
+    transition: 0.3s all;
+
     background: linear-gradient(
       35deg,
       rgba(255, 255, 255, 0) 20%,
@@ -24,50 +50,145 @@
     z-index: 5;
   }
 
-  &:hover {
-    cursor: pointer;
-    transform: translateY(-5px);
+  &.isBlocked {
+    opacity: 0.8;
 
-    &::before {
-      opacity: 1;
-      transform: rotate(-7deg) translateY(0%);
-    }
-  }
-}
+    .thumbnail {
+      box-shadow: 0 -3px 73px -10px rgb(0, 0, 0, 0.5);
 
-.isOptional {
-  width: 150px;
-
-  .title {
-    h3 {
-      font-size: 1.4rem !important;
+      &::before {
+        background: linear-gradient(
+          -150deg,
+          rgb(51, 51, 51) 10%,
+          rgba(46, 46, 46, 0.5) 50%
+        );
+      }
     }
 
-    h4 {
-      font-size: 1rem !important;
+    img {
+      filter: blur(10px);
     }
   }
 
-  .footer {
-    height: 30px;
+  &.isNotWatched {
+  }
+
+  &.isWatched {
+  }
+
+  &.isSkipped {
+    .thumbnail {
+      transition: 1s all ease-out;
+
+      box-shadow: 0 -3px 73px -10px rgb(0, 0, 0, 0.5);
+      filter: grayscale(1);
+      &::before {
+        background: linear-gradient(
+          -150deg,
+          rgb(51, 51, 51) 10%,
+          rgba(46, 46, 46, 0.6) 50%
+        );
+      }
+    }
+  }
+
+  .isOptional {
+    width: 150px;
+
+    .title {
+      h3 {
+        font-size: 1.4rem !important;
+      }
+
+      h4 {
+        font-size: 1rem !important;
+      }
+    }
+
+    .footer {
+      height: 30px;
+    }
   }
 }
 
 .platforms {
   align-items: center;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   position: absolute;
-  right: 1.5rem;
-  top: 1.5rem;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   z-index: 2;
+  color: white;
 
-  svg {
-    cursor: pointer;
-    height: 2.5rem;
-    margin-bottom: 2rem;
-    width: 2.5rem;
+  %stateStyles {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+
+    svg {
+      fill: white !important;
+      width: 13px;
+      height: 13px;
+    }
+  }
+
+  .state {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 9px;
+  }
+
+  .icon {
+    margin-left: 0.5rem;
+    position: relative;
+    background: rgb(20, 184, 20);
+    border-radius: 1000px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .watched {
+    @extend %stateStyles;
+
+    .icon {
+      background: rgb(20, 184, 20);
+    }
+  }
+
+  .notWatched {
+    @extend %stateStyles;
+
+    .icon {
+      background: rgba(201, 57, 38, 0.5);
+    }
+  }
+
+  .skipped {
+    @extend %stateStyles;
+
+    .icon {
+      background: rgba(99, 99, 99, 0.5);
+    }
+  }
+
+  .blocked {
+    @extend %stateStyles;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    .icon {
+      background: rgb(31, 31, 31);
+    }
   }
 }
 
@@ -79,15 +200,16 @@
   justify-content: center;
   margin: 0;
   overflow: hidden;
-  position: relative;
-
-  width: 100px;
-  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 
   &::before {
     background: linear-gradient(
-      -120deg,
-      rgba(0, 0, 0, 1) 0%,
+      -150deg,
+      rgba(0, 0, 0, 1) 10%,
       rgba(0, 0, 0, 0) 50%
     );
     content: "";
@@ -98,7 +220,7 @@
 
   img {
     height: 100%;
-    min-width: 100%;
+    width: 100%;
     object-fit: cover;
     object-position: center;
     position: relative;
@@ -122,7 +244,7 @@
 
   h3 {
     color: $white;
-    font-size: $font-size-l;
+    font-size: $font-size-m;
     font-weight: $font-weight-regular;
     margin: 0;
   }

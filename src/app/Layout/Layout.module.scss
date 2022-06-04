@@ -89,6 +89,28 @@
     z-index: -2;
   }
 
+  &::after {
+    // background: linear-gradient(
+    //   10deg,
+    //   rgba(17, 17, 17, 0.9) 30%,
+    //   rgba(27, 27, 27, 0) 80%
+    // );
+    background: linear-gradient(
+      30deg,
+      rgb(29, 29, 29) 40%,
+      rgba(2, 0, 36, 0) 70%
+    );
+
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    z-index: -2;
+  }
+
   img {
     animation: backgroundAnimation 40s infinite;
     height: 120%;
