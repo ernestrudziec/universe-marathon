@@ -1,8 +1,9 @@
 /* eslint-disable no-constant-condition */
 import styles from "./Tile.module.scss";
-import { ReactComponent as NetflixIcon } from "../../../assets/platforms/netflix.svg";
-import { ReactComponent as AmazonPrimeIcon } from "../../../assets/platforms/amazon_prime.svg";
-import { ReactComponent as HBOIcon } from "../../../assets/platforms/hbo.svg";
+import { ReactComponent as Checkmark } from "../../../assets/icons/checkmark.svg";
+import { ReactComponent as Eye } from "../../../assets/icons/eye.svg";
+import { ReactComponent as Lock } from "../../../assets/icons/lock.svg";
+import { ReactComponent as Skip } from "../../../assets/icons/skip.svg";
 
 import { Item, PhaseShow } from "../../../data/types";
 import { toggleItem } from "../../store/slices/itemsSlice";
@@ -25,7 +26,17 @@ export const Tile = (props: TileProps) => {
   const { data, isOptional, onHover } = props;
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
-  const itemState = useSelector(selectItemById)(data.id);
+  const item = useSelector(selectItemById)(data.id);
+
+  const state = item.state;
+  const isBlocked = false;
+  const isWatched = state === "watched";
+  const isNotWatched = state === "not_watched";
+  const isSkipped = state === "skipped";
+
+  // useEffect(() => {
+  //   console.log({ item });
+  // }, [item]);
 
   return (
     <div
@@ -37,27 +48,50 @@ export const Tile = (props: TileProps) => {
     >
       <div className={styles.thumbnail}>
         <div className={styles.platforms}>
-          <NetflixIcon />
-          <AmazonPrimeIcon />
-          <HBOIcon />
+          {isWatched && (
+            <div className={styles.watched}>
+              <div className={styles.state}>Watched</div>
+              <span className={styles.icon}>
+                <Checkmark />
+              </span>
+            </div>
+          )}
+          {isNotWatched && (
+            <div className={styles.notWatched}>
+              <div className={styles.state}>
+                Not watched
+              </div>
+              <span className={styles.icon}>
+                <Eye />
+              </span>
+            </div>
+          )}
+          {isSkipped && (
+            <div className={styles.skipped}>
+              <div className={styles.state}>Skipped</div>
+              <span className={styles.icon}>
+                <Skip />
+              </span>
+            </div>
+          )}
+          {isBlocked && (
+            <div className={styles.blocked}>
+              <div className={styles.state}>Blocked</div>
+              <span className={styles.icon}>
+                <Lock />
+              </span>
+            </div>
+          )}
         </div>
         <div className={styles.year}>{data.genre}</div>
         <img src={data.cover} />
       </div>
       <div className={styles.footer}>
         <div className={styles.title}>
+          <h4>2008 - Film</h4>
           <h3>{data.title}</h3>
-          {/* <h4>{subtitle}</h4> */}
         </div>
-        <div className={styles.actions}>
-          {/* <button className={styles.checkbox}>
-            {isChecked ? (
-              <FullCheckboxIcon width={20} height={20} />
-            ) : (
-              <EmptyCheckboxIcon width={20} height={20} />
-            )}
-          </button> */}
-        </div>
+        <div className={styles.actions}></div>
       </div>
     </div>
   );

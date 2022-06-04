@@ -10,5 +10,5 @@ export const selectItemById =
       (item) => item.id === id
     );
 
-    return item || false;
+    return item || { id, state: "not_watched" };
   };

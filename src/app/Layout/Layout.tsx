@@ -1,9 +1,11 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header";
 import styles from "./Layout.module.scss";
 import { AnimatePresence, motion } from "framer-motion";
 import { f_iron_manBackground } from "../../data/assets";
+import { useSelector } from "react-redux";
+import { selectItems } from "../store/selectors";
 
 interface LayoutProps {
   children: ReactNode;
@@ -14,6 +16,12 @@ export const Layout = ({
   children,
   hover,
 }: LayoutProps) => {
+  const items = useSelector(selectItems);
+
+  useEffect(() => {
+    console.log({ items });
+  }, [items]);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.background}>

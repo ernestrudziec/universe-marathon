@@ -1,6 +1,7 @@
 import {
   createSlice,
   PayloadAction,
+  current,
 } from "@reduxjs/toolkit";
 
 export interface Item {
@@ -23,13 +24,32 @@ export const itemsSlice = createSlice({
       state,
       action: PayloadAction<{ id: string }>
     ) => {
-      state.items = [
-        ...state.items,
-        {
-          id: action.payload.id,
-          state: "watched",
-        },
-      ];
+      // console.log(current(state.items));
+      const currentItem = current(state.items).find(
+        (item) => item.id === action.payload.id
+      );
+
+      const currentItemIndex = current(
+        state.items
+      ).findIndex((item) => item.id === action.payload.id);
+
+      if (!currentItem) {
+        state.items = [
+          ...state.items,
+          {
+            id: action.payload.id,
+            state: "watched",
+          },
+        ];
+      } else {
+        if (currentItem.state === "skipped") {
+          state.items = current(state.items).filter(
+            (item) => item.id !== action.payload.id
+          );
+        } else {
+          state.items[currentItemIndex].state = "skipped";
+        }
+      }
     },
   },
 });
