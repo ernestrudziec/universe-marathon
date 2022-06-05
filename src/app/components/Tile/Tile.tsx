@@ -24,6 +24,7 @@ export interface TileProps {
   onHover: (title: string | null) => void;
   phaseItems?: Array<Item> | null;
   phaseShows?: Array<PhaseShow> | null;
+  isPhaseLocked?: boolean;
 }
 
 export const Tile = (props: TileProps) => {
@@ -33,6 +34,7 @@ export const Tile = (props: TileProps) => {
     onHover,
     phaseShows,
     phaseItems,
+    isPhaseLocked,
   } = props;
 
   const dispatch = useDispatch();
@@ -40,6 +42,8 @@ export const Tile = (props: TileProps) => {
   const item = useSelector(selectItemById)(data.id);
 
   const getIsBlocked = () => {
+    console.log({ isPhaseLocked });
+    if (isPhaseLocked) return true;
     if (!phaseItems) return true;
 
     const currentItemIndex = phaseItems.findIndex(
@@ -52,7 +56,6 @@ export const Tile = (props: TileProps) => {
       ({ id }) => id === phaseItems[currentItemIndex - 1].id
     );
 
-    console.log({ previousItem });
     if (!previousItem) return true;
 
     return false;
@@ -80,7 +83,6 @@ export const Tile = (props: TileProps) => {
   };
 
   const state = item.state;
-
   const isBlocked = getIsBlocked();
 
   const isWatched = state === "watched" && !isBlocked;
@@ -90,10 +92,6 @@ export const Tile = (props: TileProps) => {
 
   const isNotInteractive =
     getIsNotInteractive() && !isSkipped;
-
-  useEffect(() => {
-    console.log({ item, phaseShows, phaseItems });
-  }, [items]);
 
   return (
     <div

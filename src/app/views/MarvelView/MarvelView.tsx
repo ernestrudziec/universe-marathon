@@ -32,17 +32,21 @@ export const MarvelView = ({ hover }: MarvelViewProps) => {
               isDone={false}
               optional={phase.phaseShows}
               onHover={hover.set}
+              unlocksWith={phase.unlocksWith}
             >
-              {phase.items?.map((item) => (
-                <Tile
-                  key={item.id}
-                  data={item}
-                  isChecked={false}
-                  isOptional={false}
-                  onHover={hover.set}
-                  phaseItems={phase.items}
-                />
-              ))}
+              {(isPhaseLocked) =>
+                phase.items?.map((item) => (
+                  <Tile
+                    key={item.id}
+                    data={item}
+                    isChecked={false}
+                    isOptional={false}
+                    onHover={hover.set}
+                    phaseItems={phase.items}
+                    isPhaseLocked={isPhaseLocked}
+                  />
+                ))
+              }
             </Phase>
           )
       )}
