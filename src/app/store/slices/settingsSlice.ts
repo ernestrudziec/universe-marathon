@@ -7,7 +7,7 @@ export interface SettingsState {
 }
 
 const initialState: SettingsState = {
-  level: "casual",
+  level: "superfan",
 };
 
 export const settingsSlice = createSlice({
