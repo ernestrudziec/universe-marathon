@@ -43,11 +43,7 @@
   &::before {
     transition: 0.3s all;
 
-    background: linear-gradient(
-      35deg,
-      rgba(255, 255, 255, 0) 20%,
-      rgba(255, 255, 255, 0.4)
-    );
+    background: linear-gradient(35deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.4));
     bottom: 30%;
 
     content: "";
@@ -68,11 +64,7 @@
       box-shadow: 0 -3px 73px -10px rgb(0, 0, 0, 0.5);
 
       &::before {
-        background: linear-gradient(
-          -150deg,
-          rgb(51, 51, 51) 10%,
-          rgba(46, 46, 46, 0.5) 50%
-        );
+        background: linear-gradient(-150deg, rgb(51, 51, 51) 10%, rgba(46, 46, 46, 0.5) 50%);
       }
     }
 
@@ -105,11 +97,7 @@
       box-shadow: 0 -3px 73px -10px rgb(0, 0, 0, 0.5);
       filter: grayscale(1);
       &::before {
-        background: linear-gradient(
-          -150deg,
-          rgb(51, 51, 51) 10%,
-          rgba(46, 46, 46, 0.6) 50%
-        );
+        background: linear-gradient(-150deg, rgb(51, 51, 51) 10%, rgba(46, 46, 46, 0.6) 50%);
       }
     }
   }
@@ -228,12 +216,23 @@
   top: 0;
   bottom: 0;
 
+  .notice {
+    position: absolute;
+    bottom: 0;
+    box-shadow: 0 -3px 50px -3px rgb(0, 0, 0, 1);
+    color: rgb(20, 20, 20);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+    left: 0;
+
+    z-index: 1;
+    padding: 0.5rem 1rem;
+  }
+
   &::before {
-    background: linear-gradient(
-      -150deg,
-      rgba(0, 0, 0, 1) 10%,
-      rgba(0, 0, 0, 0) 50%
-    );
+    background: linear-gradient(-150deg, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 50%);
     content: "";
     inset: 0;
     position: absolute;

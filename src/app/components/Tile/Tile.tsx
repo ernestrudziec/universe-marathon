@@ -9,10 +9,7 @@ import { Item, PhaseShow } from "../../../data/types";
 import { toggleItem } from "../../store/slices/itemsSlice";
 
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectItemById,
-  selectItems,
-} from "../../store/selectors";
+import { selectItemById, selectItems, selectSettings } from "../../store/selectors";
 
 import clsx from "clsx";
 import { useEffect } from "react";
@@ -28,33 +25,78 @@ export interface TileProps {
 }
 
 export const Tile = (props: TileProps) => {
-  const {
-    data,
-    isOptional,
-    onHover,
-    phaseShows,
-    phaseItems,
-    isPhaseLocked,
-  } = props;
+  const { data, isOptional, onHover, phaseShows, phaseItems, isPhaseLocked } = props;
+
+  useEffect(() => {
+    if (data.id === "f-doctor_strange_in_the_multiverse_of_madness") console.log({ data });
+  }, [data]);
 
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
   const item = useSelector(selectItemById)(data.id);
 
-  const getIsBlocked = () => {
-    console.log({ isPhaseLocked });
-    if (isPhaseLocked) return true;
-    if (!phaseItems) return true;
+  const scopeItems = phaseItems || phaseShows;
 
-    const currentItemIndex = phaseItems.findIndex(
-      ({ id }) => id === item.id
-    );
+  const { level } = useSelector(selectSettings);
+
+  const state = item.state;
+
+  const getAreRequiredWatched = () => {
+    const itemsWatched = items;
+    const unlocksWith = data?.unlocksWith;
+
+    if (!unlocksWith || unlocksWith === null) return true;
+
+    const unlocksWithLevel = unlocksWith[level];
+
+    if (unlocksWithLevel === null) return true;
+
+    const areRequiredItemsWatched = () => {
+      if (unlocksWithLevel?.items) {
+        const requiredItemIds = unlocksWithLevel.items;
+
+        const foundItems = requiredItemIds.filter((itemRequiredId) => {
+          return itemsWatched.findIndex((watchedItem) => watchedItem.id === itemRequiredId) > -1;
+        });
+
+        // console.log({ foundItems, requiredItemIds });
+        return foundItems.length === requiredItemIds.length;
+      } else {
+        return false;
+      }
+    };
+
+    // const areRequiredGroupWatched = () => {
+    //   if (unlocksWithLevel?.groups) {
+    //     const requiredGroupIds = unlocksWithLevel.groups;
+
+    //     const foundGroups = requiredGroupIds.filter((groupRequiredId) => {
+    //       return itemsWatched.findIndex((watchedItem) => watchedItem.id === groupRequiredId) > -1;
+    //     });
+
+    //     return foundGroups.length === requiredGroupIds.length;
+    //   } else {
+    //     return true;
+    //   }
+    // };
+
+    return areRequiredItemsWatched();
+  };
+
+  const areRequiredItemsWatched = getAreRequiredWatched();
+
+  const getIsBlocked = () => {
+    if (state === "watched" || state === "skipped") return false;
+
+    if (!areRequiredItemsWatched) return true;
+    if (isPhaseLocked) return true;
+    if (!scopeItems) return true;
+
+    const currentItemIndex = scopeItems.findIndex(({ id }) => id === item.id);
 
     if (currentItemIndex === 0) return false;
 
-    const previousItem = items.find(
-      ({ id }) => id === phaseItems[currentItemIndex - 1].id
-    );
+    const previousItem = items.find(({ id }) => id === scopeItems[currentItemIndex - 1]?.id);
 
     if (!previousItem) return true;
 
@@ -64,34 +106,26 @@ export const Tile = (props: TileProps) => {
   const getIsNotInteractive = () => {
     if (getIsBlocked()) return true;
 
-    if (!phaseItems) return true;
+    if (!scopeItems) return true;
 
-    const currentItemIndex = phaseItems.findIndex(
-      ({ id }) => id === item.id
-    );
+    const currentItemIndex = scopeItems.findIndex(({ id }) => id === item?.id);
 
-    if (currentItemIndex === phaseItems.length - 1)
-      return false;
+    if (currentItemIndex === scopeItems.length - 1) return false;
 
-    const nextItem = items.find(
-      ({ id }) => id === phaseItems[currentItemIndex + 1].id
-    );
+    const nextItem = items.find(({ id }) => id === scopeItems[currentItemIndex + 1].id);
 
     if (!nextItem) return false;
 
     return true;
   };
 
-  const state = item.state;
   const isBlocked = getIsBlocked();
 
   const isWatched = state === "watched" && !isBlocked;
-  const isNotWatched =
-    state === "not_watched" && !isBlocked;
+  const isNotWatched = state === "not_watched" && !isBlocked;
   const isSkipped = state === "skipped" && !isBlocked;
 
-  const isNotInteractive =
-    getIsNotInteractive() && !isSkipped;
+  const isNotInteractive = getIsNotInteractive() && !isSkipped;
 
   return (
     <div
@@ -105,17 +139,11 @@ export const Tile = (props: TileProps) => {
           dispatch(
             toggleItem({
               id: data.id,
-              state:
-                isSkipped && getIsNotInteractive()
-                  ? "not_interactive_skipped"
-                  : "",
+              state: isSkipped && getIsNotInteractive() ? "not_interactive_skipped" : "",
             })
           )
         }
-        onMouseEnter={() =>
-          !isNotInteractive &&
-          onHover(data.background ?? null)
-        }
+        onMouseEnter={() => !isNotInteractive && onHover(data.background ?? null)}
         className={clsx(styles.wrapper, {
           [styles.isOptional]: isOptional,
           [styles.isBlocked]: isBlocked,
@@ -126,23 +154,19 @@ export const Tile = (props: TileProps) => {
         })}
       >
         <div className={styles.thumbnail}>
+          {data?.notice && <div className={styles.notice}>{data?.notice}</div>}
           <div className={styles.platforms}>
             {isWatched && (
               <div className={styles.watched}>
                 <div className={styles.state}>Watched</div>
                 <span className={styles.icon}>
-                  <Checkmark
-                    width={"16px"}
-                    height={"16px"}
-                  />
+                  <Checkmark width={"16px"} height={"16px"} />
                 </span>
               </div>
             )}
             {isNotWatched && (
               <div className={styles.notWatched}>
-                <div className={styles.state}>
-                  Not watched
-                </div>
+                <div className={styles.state}>Not watched</div>
                 <span className={styles.icon}>
                   <Eye width={"16px"} height={"16px"} />
                 </span>
@@ -171,7 +195,7 @@ export const Tile = (props: TileProps) => {
       </div>
       <div className={styles.footer}>
         <div className={styles.title}>
-          <h4>2008 - Film</h4>
+          <h4>{data.release}</h4>
           <h3>{data.title}</h3>
         </div>
         <div className={styles.actions}></div>

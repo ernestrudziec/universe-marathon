@@ -5,6 +5,7 @@ import { Tile } from "../../components";
 import { Phase } from "../../components";
 import { Dispatch, SetStateAction } from "react";
 import type { Phase as PhaseType } from "../../../data/types";
+import { InnerPhase } from "../../components/InnerPhase";
 
 interface MarvelViewProps {
   hover: {
@@ -14,9 +15,7 @@ interface MarvelViewProps {
 }
 
 const shouldRenderPhase = (phase: PhaseType) => {
-  return phase.items === null && phase.phaseShows === null
-    ? false
-    : true;
+  return phase.items === null && phase.phaseShows === null ? false : true;
 };
 
 export const MarvelView = ({ hover }: MarvelViewProps) => {
@@ -33,19 +32,35 @@ export const MarvelView = ({ hover }: MarvelViewProps) => {
               optional={phase.phaseShows}
               onHover={hover.set}
               unlocksWith={phase.unlocksWith}
+              areCanonicalItems={phase.items !== null}
             >
-              {(isPhaseLocked) =>
-                phase.items?.map((item) => (
-                  <Tile
-                    key={item.id}
-                    data={item}
-                    isChecked={false}
-                    isOptional={false}
-                    onHover={hover.set}
-                    phaseItems={phase.items}
-                    isPhaseLocked={isPhaseLocked}
-                  />
-                ))
+              {(isPhaseLocked: boolean | undefined) =>
+                phase.items?.map((item) => {
+                  if (item.mightWatchBefore || item.stronglyRecommendedBefore || item.unlocksWith) {
+                    return (
+                      <InnerPhase
+                        key={item.id}
+                        groups={data.groups}
+                        item={item}
+                        phaseItems={phase.items}
+                        onHover={hover.set}
+                        isPhaseLocked={isPhaseLocked}
+                      />
+                    );
+                  } else {
+                    return (
+                      <Tile
+                        key={item.id}
+                        data={item}
+                        isChecked={false}
+                        isOptional={false}
+                        onHover={hover.set}
+                        phaseItems={phase.items}
+                        isPhaseLocked={isPhaseLocked}
+                      />
+                    );
+                  }
+                })
               }
             </Phase>
           )

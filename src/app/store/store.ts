@@ -1,20 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
-import {
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from "redux-persist";
+import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
 import { combineReducers } from "redux";
 
 import itemsReducer from "./slices/itemsSlice";
+import settingsReducer from "./slices/settingsSlice";
 
 const reducers = combineReducers({
   items: itemsReducer,
+  settings: settingsReducer,
 });
 
 const persistConfig = {
@@ -23,23 +17,13 @@ const persistConfig = {
   storage,
 };
 
-const persistedReducer = persistReducer(
-  persistConfig,
-  reducers
-);
+const persistedReducer = persistReducer(persistConfig, reducers);
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [
-          FLUSH,
-          REHYDRATE,
-          PAUSE,
-          PERSIST,
-          PURGE,
-          REGISTER,
-        ],
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
 });

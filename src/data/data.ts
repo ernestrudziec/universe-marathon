@@ -252,8 +252,7 @@ export const data: Data = {
           id: "f-captain_america_the_first_avenger",
           release: "July 22, 2011",
           cover: f_captain_america_the_first_avengerCover,
-          background:
-            f_captain_america_the_first_avengerBackground,
+          background: f_captain_america_the_first_avengerBackground,
         },
         {
           title: "The Consultant",
@@ -265,15 +264,12 @@ export const data: Data = {
           notice: "4 minutes",
         },
         {
-          title:
-            "A Funny Thing Happened on the Way to Thor's Hammer",
+          title: "A Funny Thing Happened on the Way to Thor's Hammer",
           genre: "oneshot",
           id: "o-a_funny_thing_happened_on_the_way_to_thors_hammer",
           release: "October 25, 2011",
-          cover:
-            o_a_funny_thing_happened_on_the_way_to_thors_hammerCover,
-          background:
-            o_a_funny_thing_happened_on_the_way_to_thors_hammerBackground,
+          cover: o_a_funny_thing_happened_on_the_way_to_thors_hammerCover,
+          background: o_a_funny_thing_happened_on_the_way_to_thors_hammerBackground,
           notice: "4 minutes",
         },
         {
@@ -360,8 +356,7 @@ export const data: Data = {
           id: "f-captain_america_the_winter_soldier",
           release: "April 4, 2014",
           cover: f_captain_america_the_winter_soldierCover,
-          background:
-            f_captain_america_the_winter_soldierBackground,
+          background: f_captain_america_the_winter_soldierBackground,
         },
         {
           title: "Guardians of the Galaxy",
@@ -380,8 +375,7 @@ export const data: Data = {
           background: f_avengers_age_of_ultronBackground,
         },
         {
-          title:
-            "WHIH Newsfront with Christine Everhart (episodes 1-5)",
+          title: "WHIH Newsfront with Christine Everhart (episodes 1-5)",
           genre: "oneshot",
           id: "o-whih_1",
           release: "July 2, 2015",
@@ -442,8 +436,7 @@ export const data: Data = {
       isMid: true,
       items: [
         {
-          title:
-            "WHIH Newsfront with Christine Everhart (episodes 6-10)",
+          title: "WHIH Newsfront with Christine Everhart (episodes 6-10)",
           genre: "oneshot",
           id: "o-whih_2",
           release: "April 22, 2016",
@@ -473,7 +466,10 @@ export const data: Data = {
         },
       ],
       unlocksWith: {
-        superfan: { items: ["f-ant_man_1"], groups: null },
+        superfan: {
+          items: ["f-ant_man_1", "s-agent_carter:s1"],
+          groups: null,
+        },
         casual: { items: ["f-ant_man_1"], groups: null },
         speedrun: null,
       },
@@ -523,8 +519,7 @@ export const data: Data = {
           id: "o-agents_of_shield_slingshot",
           release: "December 13, 2016",
           cover: o_agents_of_shield_slingshotCover,
-          background:
-            o_agents_of_shield_slingshotBackground,
+          background: o_agents_of_shield_slingshotBackground,
           notice: "6 short episodes",
         },
         {
@@ -728,10 +723,7 @@ export const data: Data = {
       ],
       unlocksWith: {
         superfan: {
-          items: [
-            "f-spider_man_far_from_home",
-            "s-runaways:s3",
-          ],
+          items: ["f-spider_man_far_from_home", "s-runaways:s3"],
           groups: null,
         },
         casual: {
@@ -755,8 +747,7 @@ export const data: Data = {
           background: f_black_widowBackground,
         },
         {
-          title:
-            "Shang-Chi and the Legend of the Ten Rings",
+          title: "Shang-Chi and the Legend of the Ten Rings",
           genre: "mcuFilm",
           id: "f-shang_chi_1",
           release: "September 3, 2021",
@@ -791,32 +782,36 @@ export const data: Data = {
             },
             speedrun: null,
           },
+          mustWatchBefore: {
+            superfan: {
+              items: null,
+              groups: [
+                "sam_raimi_spider-man_trilogy",
+                "marc_webbs_spider_man",
+                "netflix_originals",
+                "animated_spiderverse_1",
+                "sony_extened_universe_1",
+              ],
+            },
+            casual: null,
+            speedrun: null,
+          },
           stronglyRecommendedBefore: {
             superfan: null,
             casual: {
               items: null,
-              groups: [
-                "Sam Raimi Spider-Man Trilogy",
-                "Marc Webb's Spider-Man",
-              ],
+              groups: ["sam_raimi_spider-man_trilogy", "marc_webbs_spider_man"],
             },
             speedrun: {
               items: null,
-              groups: [
-                "Sam Raimi Spider-Man Trilogy",
-                "Marc Webb's Spider-Man",
-              ],
+              groups: ["sam_raimi_spider-man_trilogy", "marc_webbs_spider_man"],
             },
           },
           mightWatchBefore: {
             superfan: null,
             casual: {
               items: null,
-              groups: [
-                "netflixOriginals",
-                "animated_spiderverse_1",
-                "sony_extened_universe_1",
-              ],
+              groups: ["netflix_originals", "animated_spiderverse_1", "sony_extened_universe_1"],
             },
             speedrun: null,
           },
@@ -825,17 +820,21 @@ export const data: Data = {
           background: f_spider_man_no_way_homeBackground,
         },
         {
-          title:
-            "Doctor Strange in the Multiverse of Madness",
+          title: "Doctor Strange in the Multiverse of Madness",
           genre: "mcuFilm",
           id: "f-doctor_strange_in_the_multiverse_of_madness",
           unlocksWith: {
             superfan: {
-              items: [
-                "f-the_new_mutants",
-                "f-fantastic_four_3",
-              ],
+              items: ["f-the_new_mutants", "f-fantastic_four_3"],
               groups: null,
+            },
+            casual: null,
+            speedrun: null,
+          },
+          mustWatchBefore: {
+            superfan: {
+              items: null,
+              groups: ["x_men_1", "fantastic_4"],
             },
             casual: null,
             speedrun: null,
@@ -849,10 +848,8 @@ export const data: Data = {
             speedrun: null,
           },
           release: "May 6, 2022",
-          cover:
-            f_doctor_strange_in_the_multiverse_of_madnessCover,
-          background:
-            f_doctor_strange_in_the_multiverse_of_madnessBackground,
+          cover: f_doctor_strange_in_the_multiverse_of_madnessCover,
+          background: f_doctor_strange_in_the_multiverse_of_madnessBackground,
         },
       ],
       development: [
@@ -911,8 +908,7 @@ export const data: Data = {
           release: "TBA",
         },
         {
-          title:
-            "Untitled Shang-Chi and the Legend of the Ten Rings sequel",
+          title: "Untitled Shang-Chi and the Legend of the Ten Rings sequel",
           genre: "mcuFilm",
           id: "f-dev_shang_chi_sequel",
           release: "TBA",
@@ -941,8 +937,7 @@ export const data: Data = {
           id: "s-the_falcon_and_the_winter_soldier",
           release: "March 19, 2021",
           cover: s_the_falcon_and_the_winter_soldierCover,
-          background:
-            s_the_falcon_and_the_winter_soldierBackground,
+          background: s_the_falcon_and_the_winter_soldierBackground,
         },
         {
           title: "Loki",
@@ -969,17 +964,11 @@ export const data: Data = {
           id: "s-hawkeye",
           unlocksWith: {
             superfan: {
-              items: [
-                "f-spider_man_no_way_home",
-                "f-black_widow",
-              ],
+              items: ["f-spider_man_no_way_home", "f-black_widow"],
               groups: null,
             },
             casual: {
-              items: [
-                "f-spider_man_no_way_home",
-                "f-black_widow",
-              ],
+              items: ["f-spider_man_no_way_home", "f-black_widow"],
               groups: null,
             },
             speedrun: null,
@@ -1021,8 +1010,7 @@ export const data: Data = {
           release: "October 2022",
         },
         {
-          title:
-            "The Guardians of the Galaxy Holiday Special",
+          title: "The Guardians of the Galaxy Holiday Special",
           tier: 1,
           genre: "disneyPlusShow",
           id: "s-dev_guardians_special",
@@ -1331,16 +1319,14 @@ export const data: Data = {
           id: "f-spider_man_into_the_spiderverse",
           release: "December 14, 2018",
           cover: f_spider_man_into_the_spiderverseCover,
-          background:
-            f_spider_man_into_the_spiderverseBackground,
+          background: f_spider_man_into_the_spiderverseBackground,
         },
       ],
     },
     {
       name: "X-Men",
       id: "x_men_1",
-      watchBefore:
-        "f-doctor_strange_in_the_multiverse_of_madness",
+      watchBefore: "f-doctor_strange_in_the_multiverse_of_madness",
       watchAfter: null,
       items: [
         {
@@ -1444,8 +1430,7 @@ export const data: Data = {
     {
       name: "Fantastic 4",
       id: "fantastic_4",
-      watchBefore:
-        "f-doctor_strange_in_the_multiverse_of_madness",
+      watchBefore: "f-doctor_strange_in_the_multiverse_of_madness",
       watchAfter: null,
       items: [
         {
@@ -1457,8 +1442,7 @@ export const data: Data = {
           background: f_fantastic_four_1Background,
         },
         {
-          title:
-            "Fantastic Four: Rise of the Silver Surfer",
+          title: "Fantastic Four: Rise of the Silver Surfer",
           genre: "nonMcuFilm",
           id: "f-fantastic_four_2",
           release: "June 15, 2007",
@@ -1570,5 +1554,3 @@ export const data: Data = {
     },
   ],
 };
-
-console.log(data);

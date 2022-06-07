@@ -23,7 +23,7 @@
   align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .separator {
@@ -63,7 +63,6 @@
 }
 
 .optional {
-  margin-left: 5rem;
   max-width: 600px;
   position: relative;
 }
@@ -79,6 +78,7 @@
   justify-content: center;
   max-width: 700px;
   padding: 3rem;
+  margin-right: 3rem;
 }
 
 .sideLine {

@@ -34,6 +34,7 @@ export interface Item {
   id: ItemId; //ids start with "f" - for films, "s" - for shows, "o" - for oneshots and webisodes
   release: string; //release date (U.S.)
   unlocksWith?: Superset;
+  mustWatchBefore?: Superset;
   stronglyRecommendedBefore?: Superset;
   mightWatchBefore?: Superset;
   cover?: string;
@@ -52,6 +53,7 @@ export interface PhaseShow {
   unlocksWith?: Superset;
   cover?: string;
   background?: string;
+  notice?: string;
 }
 
 export type PhaseShows = Array<PhaseShow> | null;
