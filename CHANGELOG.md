@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.0.0](https://github.com/ernestrudziec/universe-marathon/compare/v1.3.0...v2.0.0) (2022-06-07)
+
+
+### Features
+
+* finished basic functionality ([fdaf296](https://github.com/ernestrudziec/universe-marathon/commit/fdaf296b40985dff19f25cf382313c0a65db10f5))
+* finished basic functionality ([d2110f1](https://github.com/ernestrudziec/universe-marathon/commit/d2110f1686926e24f2aa307da93e4dc13c772ac7))
+* phases unlocksWith works for items ([85a4d95](https://github.com/ernestrudziec/universe-marathon/commit/85a4d95b034627aa48583f6d312f6c0cf7210f61))
+
 ## [1.3.0](https://github.com/ernestrudziec/universe-marathon/compare/v1.2.0...v1.3.0) (2022-06-04)
 
 
