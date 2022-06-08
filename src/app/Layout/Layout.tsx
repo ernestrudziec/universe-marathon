@@ -3,7 +3,7 @@ import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header";
 import styles from "./Layout.module.scss";
 import { AnimatePresence, motion } from "framer-motion";
-import { f_iron_manBackground } from "../../data/assets";
+import DefaultBackground from "../../assets/defaults/default_bg.jpg";
 
 interface LayoutProps {
   children: ReactNode;
@@ -17,7 +17,7 @@ export const Layout = ({ children, hover }: LayoutProps) => {
         <AnimatePresence>
           <motion.img
             key={hover}
-            src={hover || f_iron_manBackground}
+            src={hover || DefaultBackground}
             initial={{ opacity: 0, y: 200 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, y: 100 }}
