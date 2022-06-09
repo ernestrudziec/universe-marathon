@@ -1,11 +1,61 @@
 .header {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
+  position: fixed;
+  height: 100px;
+  top: 0;
+  z-index: 10;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    z-index: -1;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 1) 200%);
+  }
 }
 
 .content {
   max-width: $media-xl;
   padding: 3rem;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings {
+  border: none;
+  background: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 5px;
+  transition: 0.3s all ease-out;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.15);
+  }
+
+  span {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-family: "Montserrat";
+    font-weight: 500;
+  }
+
+  svg {
+    fill: white;
+    width: 20px;
+    height: 20px;
+    margin-left: 1rem;
+  }
 }

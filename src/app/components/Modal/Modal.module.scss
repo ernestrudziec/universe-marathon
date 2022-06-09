@@ -1,0 +1,29 @@
+.modal {
+}
+
+:global(.ReactModalPortal) {
+  position: relative;
+  z-index: 999;
+}
+
+:global(.ReactModal__Overlay) {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100% !important;
+}
+
+:global(.ReactModal__Content) {
+  position: relative !important;
+  max-width: 1000px;
+  margin: 0 auto;
+  max-height: 500px;
+  width: 80%;
+  height: 100%;
+  left: initial !important;
+  right: initial !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -18,9 +18,9 @@ export const Layout = ({ children, hover }: LayoutProps) => {
           <motion.img
             key={hover}
             src={hover || DefaultBackground}
-            initial={{ opacity: 0, y: 200 }}
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0, y: 100 }}
+            exit={{ opacity: 0 }}
           />
         </AnimatePresence>
       </div>

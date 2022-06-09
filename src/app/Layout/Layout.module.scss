@@ -1,7 +1,6 @@
 .wrapper {
   background: linear-gradient(-50deg, rgb(29, 29, 29) -10%, rgb(41, 41, 41) 150%);
 
-  min-height: 100vh;
   position: relative;
   width: 100%;
   z-index: 1;
@@ -14,14 +13,13 @@
   height: 100%;
   justify-content: center;
   margin: 0 auto;
-  min-height: 100vh;
+
   position: relative;
-  width: 100%;
+
   z-index: 3;
 }
 
 .content {
-  height: 100%;
   margin: 0;
   max-width: $media-xl;
   padding-bottom: 20rem;
@@ -55,12 +53,14 @@
 }
 
 .background {
-  bottom: -10%;
-  left: -10%;
+  bottom: 0;
+  left: 0;
   position: fixed;
-  right: -10%;
-  top: -10%;
+  right: -3%;
+  top: 0;
   z-index: 0;
+  height: 100vh;
+  width: 100vw;
 
   &::before {
     // background: linear-gradient(

@@ -5,6 +5,9 @@ import { store } from "./app/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
+import ReactModal from "react-modal";
+
+ReactModal.setAppElement("#root");
 
 const persistor = persistStore(store);
 
@@ -14,10 +17,7 @@ ReactDOM.createRoot(
 ).render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate
-        loading={"Loading..."}
-        persistor={persistor}
-      >
+      <PersistGate loading={"Loading..."} persistor={persistor}>
         <Root />
       </PersistGate>
     </Provider>
