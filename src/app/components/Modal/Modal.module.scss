@@ -1,4 +1,5 @@
 .modal {
+  background: black;
 }
 
 :global(.ReactModalPortal) {
@@ -7,7 +8,7 @@
 }
 
 :global(.ReactModal__Overlay) {
-  background-color: rgba(0, 0, 0, 0.5) !important;
+  background-color: rgba(0, 0, 0, 0.6) !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -15,15 +16,55 @@
 }
 
 :global(.ReactModal__Content) {
-  position: relative !important;
   max-width: 1000px;
+
+  position: relative;
   margin: 0 auto;
-  max-height: 500px;
-  width: 80%;
-  height: 100%;
-  left: initial !important;
+  max-height: 1000px !important;
   right: initial !important;
+  left: initial !important;
+  width: 80%;
+
+  background-color: rgba($color: #2b2b2b, $alpha: 1) !important;
+
+  border: none !important;
+}
+
+.wrapper {
+  min-height: 300px;
+  padding: 3rem;
+  color: white;
+  font-size: 1.6rem;
+  background-color: rgba($color: #2b2b2b, $alpha: 1);
+}
+
+.close {
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 100px;
+
+  svg {
+    fill: white;
+  }
+}
+
+.title {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 3rem;
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+    color: white;
+    fill: white;
+    margin-right: 1rem;
+  }
+
+  font-size: 2.5rem;
 }

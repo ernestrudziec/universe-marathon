@@ -40,6 +40,15 @@
   border-radius: 5px;
   transition: 0.3s all ease-out;
   cursor: pointer;
+  background: rgba(43, 43, 43, 0.2);
+
+  span {
+    display: none;
+
+    @include include-s {
+      display: initial;
+    }
+  }
 
   &:hover {
     background: rgba(0, 0, 0, 0.15);
@@ -58,4 +67,133 @@
     height: 20px;
     margin-left: 1rem;
   }
+}
+
+.levelTable {
+  width: 100%;
+}
+
+.tilesWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  padding-bottom: 3rem;
+}
+
+.tile {
+  width: 100%;
+  height: 100px;
+  position: relative;
+
+  @include include-m {
+    width: 180px;
+    height: 120px;
+  }
+  background-color: rgba($color: rgb(59, 59, 59), $alpha: 1);
+  border-radius: 5px;
+  margin: 1rem;
+  flex-direction: column;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 1.4rem;
+  padding: 1rem;
+  padding-right: 4rem;
+
+  // &.isOptional {
+  // }
+
+  // &.isRequired {
+  // }
+
+  &.isExcluded {
+    opacity: 0.5;
+  }
+
+  span {
+    width: 100%;
+  }
+
+  div {
+    font-size: 1rem;
+    margin-top: 1rem;
+    color: rgb(168, 168, 168);
+  }
+}
+
+%icon {
+  width: 17px;
+  height: 17px;
+  margin-bottom: 1rem;
+  fill: white;
+  align-self: center;
+  justify-self: center;
+  position: relative;
+}
+
+.requiredIcon {
+  @extend %icon;
+  width: 12px;
+  height: 12px;
+  background: #18ca12;
+  padding: 0.5rem;
+  border-radius: 100px;
+  fill: rgba($color: #18ca12, $alpha: 1);
+  filter: drop-shadow(0px 0px 30px rgba($color: #24cc14, $alpha: 1));
+}
+
+.warningIcon {
+  @extend %icon;
+  fill: rgba($color: #16d5db, $alpha: 1);
+  position: relative;
+
+  filter: drop-shadow(0px 0px 14px rgba($color: #16d5db, $alpha: 1));
+}
+
+.recommendedIcon {
+  @extend %icon;
+  fill: rgba($color: #f9fd00, $alpha: 1);
+  filter: drop-shadow(0px 0px 14px rgba($color: #f9fd00, $alpha: 1));
+}
+
+.excludedIcon {
+  @extend %icon;
+  fill: rgba($color: #e6102d, $alpha: 1);
+  filter: drop-shadow(0px 0px 14px rgba($color: #c7151e, $alpha: 1));
+}
+
+.iconRequired {
+  margin-left: 0.5rem;
+  background: rgb(20, 184, 20);
+  border-radius: 100px;
+  min-width: 20px;
+  min-height: 25px;
+  max-width: 25px;
+  max-height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 0rem;
+  right: 1rem;
+}
+
+h4 {
+  font-weight: 300;
+  margin-top: 0;
+}
+
+h3 {
+  margin-bottom: 1rem;
 }

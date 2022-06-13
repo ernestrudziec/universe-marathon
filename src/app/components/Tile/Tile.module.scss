@@ -1,8 +1,12 @@
 .outerWrapper {
   transition: 0.3s all ease-out;
-  max-width: 200px;
+  max-width: 140px;
   margin: 1rem;
   margin-top: 0;
+
+  @include include-s {
+    max-width: 200px;
+  }
 
   &.isNotInteractive {
     opacity: 0.5;
@@ -32,14 +36,18 @@
   overflow: hidden;
   position: relative;
   transition: 0.3s all;
-  width: 200px;
-  height: 300px;
+  width: 140px;
+  height: 200px;
   user-select: none; /* supported by Chrome and Opera */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
 
+  @include include-s {
+    width: 200px;
+    height: 300px;
+  }
   &::before {
     transition: 0.3s all;
 
@@ -87,8 +95,8 @@
     }
   }
 
-  &.isWatched {
-  }
+  // &.isWatched {
+  // }
 
   &.isSkipped {
     .thumbnail {
@@ -138,8 +146,13 @@
     justify-content: flex-start;
     align-items: center;
     position: absolute;
-    right: 1.5rem;
-    top: 1.5rem;
+    * {
+      font-size: 0.8rem !important;
+    }
+
+    @include include-s {
+      font-size: 1.6rem;
+    }
 
     svg {
       fill: white !important;
@@ -168,6 +181,8 @@
 
   .watched {
     @extend %stateStyles;
+    right: 1.5rem;
+    top: 1.5rem;
 
     .icon {
       background: rgb(20, 184, 20);
@@ -176,6 +191,8 @@
 
   .notWatched {
     @extend %stateStyles;
+    right: 1.5rem;
+    top: 1.5rem;
 
     .icon {
       background: rgba(201, 57, 38, 0.5);
@@ -184,6 +201,8 @@
 
   .skipped {
     @extend %stateStyles;
+    right: 1.5rem;
+    top: 1.5rem;
 
     .icon {
       background: rgba(99, 99, 99, 0.5);

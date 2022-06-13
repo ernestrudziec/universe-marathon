@@ -1,0 +1,1 @@
+export { settingsConfig } from "./config";

@@ -20,10 +20,15 @@
 }
 
 .content {
-  align-items: flex-start;
+  align-items: center;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+
+  @media screen and (min-width: 1390px) {
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .separator {
@@ -77,17 +82,27 @@
   flex-wrap: wrap;
   justify-content: center;
   max-width: 700px;
-  padding: 3rem;
-  margin-right: 3rem;
+  padding: 3rem 1rem;
+
+  @media screen and (min-width: 1390px) {
+    margin-right: 3rem;
+    padding: 3rem;
+  }
 }
 
 .sideLine {
   border-right: solid 1px $mouse-white;
-  border-top: solid 1px $mouse-white;
+  border-top: none;
+  margin-top: 15rem;
   height: 8rem;
   position: relative;
   right: 4rem;
   width: 8rem;
+
+  @media screen and (min-width: 1390px) {
+    margin-top: 0;
+    border-top: solid 1px $mouse-white;
+  }
 }
 
 .sideDot {

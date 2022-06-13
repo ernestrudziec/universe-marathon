@@ -1,3 +1,11 @@
 .logo {
-  width: auto;
+  svg {
+    width: 150px !important;
+  }
+
+  @include include-m {
+    svg {
+      width: 200px !important;
+    }
+  }
 }
