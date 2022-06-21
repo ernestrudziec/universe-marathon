@@ -993,6 +993,17 @@ export const data: Data = {
           tier: 1,
           genre: "disneyPlusShow",
           id: "s-ms_marvel",
+          unlocksWith: {
+            superfan: {
+              items: ["f-doctor_strange_in_the_multiverse_of_madness"],
+              groups: null,
+            },
+            casual: {
+              items: ["f-doctor_strange_in_the_multiverse_of_madness"],
+              groups: null,
+            },
+            speedrun: null,
+          },
           release: "June 8, 2022",
           cover: s_ms_marvelCover,
           background: s_ms_marvelBackground,
