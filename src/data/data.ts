@@ -122,6 +122,8 @@ import {
   s_hawkeyeBackground,
   s_moon_knightCover,
   s_moon_knightBackground,
+  s_ms_marvelCover,
+  s_ms_marvelBackground,
   s_daredevil_s1Cover,
   s_daredevil_s1Background,
   s_jessica_jones_s1Cover,
@@ -986,15 +988,17 @@ export const data: Data = {
           cover: s_moon_knightCover,
           background: s_moon_knightBackground,
         },
-      ],
-      phaseShowsDevelopment: [
         {
           title: "Ms. Marvel",
           tier: 1,
           genre: "disneyPlusShow",
           id: "s-ms_marvel",
           release: "June 8, 2022",
+          cover: s_ms_marvelCover,
+          background: s_ms_marvelBackground,
         },
+      ],
+      phaseShowsDevelopment: [
         {
           title: "She-Hulk: Attorney at Law",
           tier: 1,

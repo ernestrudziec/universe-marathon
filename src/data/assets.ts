@@ -181,6 +181,9 @@ import s_hawkeyeBackground from "../assets/items/phases/4/s-hawkeye/background.j
 import s_moon_knightCover from "../assets/items/phases/4/s-moon_knight/cover.jpg";
 import s_moon_knightBackground from "../assets/items/phases/4/s-moon_knight/background.jpg";
 
+import s_ms_marvelCover from "../assets/items/phases/4/s-ms_marvel/cover.jpg";
+import s_ms_marvelBackground from "../assets/items/phases/4/s-ms_marvel/background.jpg";
+
 import s_daredevil_s1Cover from "../assets/items/groups/netflix_originals/s-daredevil.s1/cover.jpg";
 import s_daredevil_s1Background from "../assets/items/groups/netflix_originals/s-daredevil.s1/background.jpg";
 
@@ -415,6 +418,8 @@ export {
   s_hawkeyeBackground,
   s_moon_knightCover,
   s_moon_knightBackground,
+  s_ms_marvelCover,
+  s_ms_marvelBackground,
   s_daredevil_s1Cover,
   s_daredevil_s1Background,
   s_jessica_jones_s1Cover,
