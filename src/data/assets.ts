@@ -295,6 +295,9 @@ import f_fantastic_four_3Background from "../assets/items/groups/fantastic_4/f-f
 import f_morbiusCover from "../assets/items/groups/sony_extened_universe_2/f-morbius/cover.jpg";
 import f_morbiusBackground from "../assets/items/groups/sony_extened_universe_2/f-morbius/background.jpg";
 
+import f_thor_love_and_thunderCover from "../assets/items/phases/4/f-thor_love_and_thunder/cover.jpg";
+import f_thor_love_and_thunderBackground from "../assets/items/phases/4/f-thor_love_and_thunder/background.jpg";
+
 export {
   f_iron_manCover,
   f_iron_manBackground,
@@ -494,4 +497,6 @@ export {
   f_fantastic_four_3Background,
   f_morbiusCover,
   f_morbiusBackground,
+  f_thor_love_and_thunderCover,
+  f_thor_love_and_thunderBackground,
 };
