@@ -198,6 +198,8 @@ import {
   f_fantastic_four_3Background,
   f_morbiusCover,
   f_morbiusBackground,
+  f_thor_love_and_thunderCover,
+  f_thor_love_and_thunderBackground,
 } from "./assets";
 
 export const data: Data = {
@@ -853,14 +855,16 @@ export const data: Data = {
           cover: f_doctor_strange_in_the_multiverse_of_madnessCover,
           background: f_doctor_strange_in_the_multiverse_of_madnessBackground,
         },
-      ],
-      development: [
         {
           title: "Thor: Love and Thunder",
           genre: "mcuFilm",
           id: "f-thor_love_and_thunder",
           release: "July 8, 2022",
+          cover: f_thor_love_and_thunderCover,
+          background: f_thor_love_and_thunderBackground,
         },
+      ],
+      development: [
         {
           title: "Black Panther: Wakanda Forever",
           genre: "mcuFilm",
