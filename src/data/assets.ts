@@ -298,6 +298,12 @@ import f_morbiusBackground from "../assets/items/groups/sony_extened_universe_2/
 import f_thor_love_and_thunderCover from "../assets/items/phases/4/f-thor_love_and_thunder/cover.jpg";
 import f_thor_love_and_thunderBackground from "../assets/items/phases/4/f-thor_love_and_thunder/background.jpg";
 
+import o_i_am_grootCover from "../assets/items/phases/4/o-i_am_groot/cover.jpg";
+import o_i_am_grootBackground from "../assets/items/phases/4/o-i_am_groot/background.jpg";
+
+import s_she_hulkCover from "../assets/items/phases/4/s-she_hulk/cover.jpg";
+import s_she_hulkBackground from "../assets/items/phases/4/s-she_hulk/background.jpg";
+
 export {
   f_iron_manCover,
   f_iron_manBackground,
@@ -499,4 +505,8 @@ export {
   f_morbiusBackground,
   f_thor_love_and_thunderCover,
   f_thor_love_and_thunderBackground,
+  o_i_am_grootCover,
+  o_i_am_grootBackground,
+  s_she_hulkCover,
+  s_she_hulkBackground,
 };

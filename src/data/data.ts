@@ -200,6 +200,10 @@ import {
   f_morbiusBackground,
   f_thor_love_and_thunderCover,
   f_thor_love_and_thunderBackground,
+  o_i_am_grootCover,
+  o_i_am_grootBackground,
+  s_she_hulkCover,
+  s_she_hulkBackground,
 } from "./assets";
 
 export const data: Data = {
@@ -863,6 +867,15 @@ export const data: Data = {
           cover: f_thor_love_and_thunderCover,
           background: f_thor_love_and_thunderBackground,
         },
+        {
+          title: "I Am Groot",
+          genre: "oneshot",
+          id: "o-i_am_groot",
+          release: "August 10, 2022",
+          cover: o_i_am_grootCover,
+          background: o_i_am_grootBackground,
+          notice: "5 nanoepisodes",
+        },
       ],
       development: [
         {
@@ -1012,15 +1025,17 @@ export const data: Data = {
           cover: s_ms_marvelCover,
           background: s_ms_marvelBackground,
         },
-      ],
-      phaseShowsDevelopment: [
         {
           title: "She-Hulk: Attorney at Law",
           tier: 1,
           genre: "disneyPlusShow",
           id: "s-she_hulk",
-          release: "August 17, 2022",
+          release: "August 18, 2022",
+          cover: s_she_hulkCover,
+          background: s_she_hulkBackground,
         },
+      ],
+      phaseShowsDevelopment: [
         {
           title: "Untitled Halloween special",
           tier: 1,
