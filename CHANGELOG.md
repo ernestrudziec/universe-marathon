@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.1.0](https://github.com/ernestrudziec/universe-marathon/compare/v2.0.0...v2.1.0) (2022-08-18)
+
+
+### Features
+
+* all assets, ads and analytics ([52a337e](https://github.com/ernestrudziec/universe-marathon/commit/52a337e15bad4b4660951fea1144d6914a14caea))
+* all assets, ads and analytics ([7689507](https://github.com/ernestrudziec/universe-marathon/commit/7689507640e8f33df4f92ed6990536f8c4b9ad64))
+* few enchancemenets ([a1ef1a1](https://github.com/ernestrudziec/universe-marathon/commit/a1ef1a1b0a8623c2497cde7bb54a8b35cc7c3dc6))
+* universe-marathon -> bingeverse ([9fbdfa6](https://github.com/ernestrudziec/universe-marathon/commit/9fbdfa675b3e0e2d31da978246dba0a57bb039be))
+* update ([#10](https://github.com/ernestrudziec/universe-marathon/issues/10)) ([034f215](https://github.com/ernestrudziec/universe-marathon/commit/034f215a15ad602335efa753b41e45870b211907))
+* update ms. marvel as available to watch ([#8](https://github.com/ernestrudziec/universe-marathon/issues/8)) ([e487dfc](https://github.com/ernestrudziec/universe-marathon/commit/e487dfce3e9e709e0e918a6e5180bb852051aab8))
+
+
+### Bug Fixes
+
+* bg issues fixed ([bde7db4](https://github.com/ernestrudziec/universe-marathon/commit/bde7db46eb9c4144357f554e409ce0cd4e4ebbf4))
+* ms. marvel unlocks ([#9](https://github.com/ernestrudziec/universe-marathon/issues/9)) ([1b52543](https://github.com/ernestrudziec/universe-marathon/commit/1b5254386c2ee66b59b6bf88f1710054e26ea47e))
+* sth ([7ba0b29](https://github.com/ernestrudziec/universe-marathon/commit/7ba0b294e5db39d30dea4ebf5a7984b82ed9fc7a))
+
 ## [2.0.0](https://github.com/ernestrudziec/universe-marathon/compare/v1.3.0...v2.0.0) (2022-06-07)
 
 
